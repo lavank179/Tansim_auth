@@ -37,8 +37,6 @@
                 <div class="col-sm-9 col-md-9 col-lg-9">
                     <!-- Login form -->
                     <div class="login-form">
-                        <div class="vertical-center">
-                            <div class="inner-block">
                                 <p id="p1"><b>Login</b></p>
                                 <p id="p2">Hello there! Welcome Back</p>
                                 <form action="" method="post">
@@ -58,8 +56,6 @@
                                     <button type="submit" name="login" id="sign_in" class="btn btn-outline-primary btn-lg btn-block">Sign
                                         in</button>
                                 </form>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-sm-2 col-md-2 col-lg-2"></div>
