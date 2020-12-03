@@ -2,48 +2,74 @@
     background: #2B377A;
     align-items: center;
     text-align: center;
+    height: 855px;
 }
 
 #sidebar1 #logo{
-    display: flex;
-    width: 196px;
     height: 40px;
-    top: 105px;
-    font-family: Helvetica;
+    padding-top: 105px;
+    font-family: "Helvetic"a;
     font-size: 28px;
     line-height: 40px;
     color: #FFFFFF;
 }
 
 #sidebar1 #p1{
-    display: flex;
-    width: 432px;
     height: 80px;
-    top: 188px;
-    font-family: Helvetica;
+    padding-top: 83px;
+    font-family: "Helvetica";
     font-size: 28px;
     line-height: 40px;
     color: #39DBFF;
 }
 
 #sidebar1 #p2{
-    display: flex;
-    width: 336px;
     height: 48px;
-    top: 276px;
-    font-family: Rubik;
+    padding-top: 88px;
+    font-family: "Rubik";
     font-size: 16px;
     line-height: 24px;
+    letter-spacing: -0.01em;
     color: #FFFFFF;
 }
 
 #sidebar1 #p3{
-    display: flex;
-    width: 336px;
-    height: 48px;
-    top: 276px;
-    font-family: Rubik;
+    height: 19px;
+    padding-top: 360px;
+    font-family: "Lato";
     font-size: 16px;
-    line-height: 24px;
+    line-height: 19px;
     color: #FFFFFF;
+}
+
+.login-form {
+    height: 855px;
+    background: #FFFFFF;
+}
+
+.login-form #p1{
+    height: 28px;
+    padding-top: 220px;
+    font-family: "Helvetica";
+    font-size: 24px;
+    line-height: 28px;
+    color: #525252;
+}
+
+.login-form #p2{
+    height: 23px;
+    padding-top: 52px;
+    font-family: "Helvetica";
+    font-size: 20px;
+    line-height: 23px;
+    color: #777777;
+}
+
+.login-form #li1,#li2{
+    padding-top: 39px;
+}
+
+.login-form #email_signin,#password_signin{
+    font-family: "Lato";
+    color: #525252;
 }
