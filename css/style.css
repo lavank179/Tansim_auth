@@ -1,0 +1,49 @@
+#sidebar1 {
+    background: #2B377A;
+    align-items: center;
+    text-align: center;
+}
+
+#sidebar1 #logo{
+    display: flex;
+    width: 196px;
+    height: 40px;
+    top: 105px;
+    font-family: Helvetica;
+    font-size: 28px;
+    line-height: 40px;
+    color: #FFFFFF;
+}
+
+#sidebar1 #p1{
+    display: flex;
+    width: 432px;
+    height: 80px;
+    top: 188px;
+    font-family: Helvetica;
+    font-size: 28px;
+    line-height: 40px;
+    color: #39DBFF;
+}
+
+#sidebar1 #p2{
+    display: flex;
+    width: 336px;
+    height: 48px;
+    top: 276px;
+    font-family: Rubik;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+#sidebar1 #p3{
+    display: flex;
+    width: 336px;
+    height: 48px;
+    top: 276px;
+    font-family: Rubik;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
