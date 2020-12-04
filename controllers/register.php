@@ -83,7 +83,7 @@
 
                     // Query
                     $sql = "INSERT INTO users (email, mobilenumber, password, cpassword, token, is_active,
-                    date_time) VALUES ('{$firstname}', '{$lastname}', '{$email}', '{$mobilenumber}', '{$password_hash}','{$cpassword_hash}', 
+                    date_time) VALUES ('{$email}', '{$mobilenumber}', '{$password_hash}','{$cpassword_hash}', 
                     '{$token}', '0', now())";
 
                     // Create mysql query
