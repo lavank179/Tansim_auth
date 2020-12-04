@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Helvetica|Rubik|Lato" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./css/style.css">
     <title>PHP User Registration System Example</title>
     <!-- jQuery + Bootstrap JS -->
@@ -69,8 +70,8 @@
                             </div>
 
                             <div><?php include('./controllers/register.php'); ?></div>
-                            <button type="submit" name="submit" id="submit" class="btn btn-outline-primary btn-lg btn-block">Sign up
-                            </button>
+                            <br><br><br>
+                            <button type="submit" name="submit" id="submit" class="btn btn-lg btn-block"> Create your account </button>
                         </form>
                     </div>
                 </div>
