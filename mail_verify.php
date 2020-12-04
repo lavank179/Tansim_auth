@@ -1,10 +1,3 @@
-<?php
-
-if (isset($_GET['email'])) {
-
-    $email = $_GET['email'];
-}
-?>
 <!doctype html>
 <html lang="en">
 
@@ -30,7 +23,7 @@ if (isset($_GET['email'])) {
                 <p id="logo"><b>TANSIM LOGO</b></p>
                 <p id="p1"><b>Entrepreneurship Development<br> and Innovation Institute</b></p>
                 <p id="p2">It provides various information such as details<br> about. Startup ecosystem in State, events.</p>
-                <p id="p3"><a href="#" style="text-decoration: none; color: #FFFFFF;">Don’t have an account? Sign up</a></p>
+                <p id="p3"><a href="http://localhost/tansim_auth/signup.php" style="text-decoration: none; color: #FFFFFF;">Don’t have an account? Sign up</a></p>
             </div>
         </div>
 
@@ -39,7 +32,7 @@ if (isset($_GET['email'])) {
             <div class="row" id="email-verify">
                 <div class="col-sm-1 col-md-1 col-lg-1"></div>
                 <div class="col-sm-9 col-md-9 col-lg-9">
-                <div><?php include('./controllers/user_activation.php'); ?></div>
+                    <div><?php include('./controllers/user_activation.php'); ?></div>
                     <p id="p1"><b>Email Verification</b></p>
                     <p id="p2">We need to verify your email address before<br> getting started!</p>
                     <div class="col-12 mb-5 text-center">
@@ -49,12 +42,19 @@ if (isset($_GET['email'])) {
                     </div>
                     <div class="inner-block">
                         <form method="get">
-                            <input type="text" class="form-control" name="email" id="firstName" value="<?php echo $email; ?>" />
+                            <?php
+
+                            if (isset($_GET['email'])) {
+
+                                $email = $_GET['email'];
+                            }
+                            ?>
+                            <input type="text" class="form-control" name="email" id="email" value="<?php echo $email; ?>" />
                             <div class="form-group" id="l1">
-                                <input type="text" class="form-control" name="token" id="firstName" />
+                                <input type="text" class="form-control" name="token" id="otp" />
                                 <hr />
                             </div>
-                            
+
                             <button type="submit" id="submit" class="btn btn-lg btn-block">VERIFY</button>
                         </form>
                     </div>
@@ -63,9 +63,9 @@ if (isset($_GET['email'])) {
                     <div class="container-fluid" style="text-align: center;">
                         <a href="http://localhost/tansim_auth/resend-otp.php?email=<?php echo $email; ?>" class="btn btn-lg btn-primary"> Resend OTP </a>
                         <?php
-                            if ($vf == 1) {
-                                header('location:index.php');
-                            }
+                        if ($vf == 1) {
+                            header('location:index.php');
+                        }
                         ?>
                     </div>
                 </div>

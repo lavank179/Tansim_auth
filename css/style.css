@@ -1,212 +1,219 @@
-                #sidebar1 {
-                    background: #2B377A;
-                    align-items: center;
-                    text-align: center;
-                    height: 855px;
-                }
-                
-                #sidebar1 #logo {
-                    height: 40px;
-                    padding-top: 105px;
-                    font-family: "Helvetic"a;
-                    font-size: 28px;
-                    line-height: 40px;
-                    color: #FFFFFF;
-                }
-                
-                #sidebar1 #p1 {
-                    height: 80px;
-                    padding-top: 83px;
-                    font-family: "Helvetica";
-                    font-size: 28px;
-                    line-height: 40px;
-                    color: #39DBFF;
-                }
-                
-                #sidebar1 #p2 {
-                    height: 48px;
-                    padding-top: 88px;
-                    font-family: "Rubik";
-                    font-size: 16px;
-                    line-height: 24px;
-                    letter-spacing: -0.01em;
-                    color: #FFFFFF;
-                }
-                
-                #sidebar1 #p3 {
-                    height: 19px;
-                    padding-top: 360px;
-                    font-family: "Lato";
-                    font-size: 16px;
-                    line-height: 19px;
-                    color: #FFFFFF;
-                }
-                
-                .login-form {
-                    height: 855px;
-                    background: #FFFFFF;
-                }
-                
-                .login-form #p1 {
-                    height: 28px;
-                    padding-top: 220px;
-                    font-family: "Helvetica";
-                    font-size: 24px;
-                    line-height: 28px;
-                    color: #525252;
-                }
-                
-                .login-form #p2 {
-                    height: 23px;
-                    padding-top: 52px;
-                    font-family: "Helvetica";
-                    font-size: 20px;
-                    line-height: 23px;
-                    color: #777777;
-                }
-                
-                .login-form #p3 {
-                    height: 16px;
-                    padding-top: 20px;
-                    font-family: "Lato";
-                    font-size: 13px;
-                    line-height: 16px;
-                    color: #7D7D7D;
-                }
-                
-                .login-form #li1,
-                #li2 {
-                    padding-top: 39px;
-                }
-                
-                .login-form #email_signin,
-                #password_signin {
-                    font-family: "Lato";
-                    color: #525252;
-                }
-                
-                .login-form .form-control:focus {
-                    border: 1.5px solid #3c4caa;
-                    box-shadow: none;
-                }
-                
-                .login-form button {
-                    background: #2B377A;
-                    color: white;
-                    font-family: "Lato";
-                }
-                
-                .login-form button:hover {
-                    background-color: #2B377A;
-                    color: white;
-                    font-family: "Lato";
-                }
-                
-                .signup-form {
-                    height: 855px;
-                    background: #FFFFFF;
-                }
-                
-                .signup-form #p1 {
-                    height: 28px;
-                    padding-top: 188px;
-                    font-family: "Helvetica";
-                    font-size: 24px;
-                    line-height: 28px;
-                    color: #525252;
-                }
-                
-                .signup-form #p2 {
-                    height: 16px;
-                    padding-top: 20px;
-                    font-family: "Lato";
-                    font-size: 13px;
-                    line-height: 16px;
-                    color: #7D7D7D;
-                }
-                
-                .signup-form #l1 {
-                    padding-top: 68px;
-                }
-                
-                .signup-form #l2,
-                #l3,
-                #l4 {
-                    padding-top: 16px;
-                }
-                
-                .signup-form .form-control:focus {
-                    border: 1.5px solid #3c4caa;
-                    box-shadow: none;
-                }
-                
-                .signup-form button {
-                    background: #2B377A;
-                    color: white;
-                    font-family: "Lato";
-                }
-                
-                .signup-form button:hover {
-                    background-color: #2B377A;
-                    color: white;
-                    font-family: "Lato";
-                }
-                
-                #email-verify #p1 {
-                    height: 28px;
-                    padding-top: 192px;
-                    font-family: "Helvetica";
-                    font-size: 24px;
-                    line-height: 28px;
-                    color: #525252;
-                }
-                
-                #email-verify #p2 {
-                    height: 56px;
-                    padding-top: 52px;
-                    font-family: "Helvetica";
-                    font-size: 20px;
-                    line-height: 28px;
-                    color: #777777;
-                }
-                
-                #email-verify #l1 {
-                    padding-top: 102px;
-                }
-                
-                #email-verify input {
-                    height: 48px;
-                    font-family: "Helvetica";
-                    font-weight: 300;
-                    font-size: 42px;
-                    line-height: 48px;
-                    letter-spacing: 0.6em;
-                    color: #525252;
-                    box-shadow: none;
-                    border: none;
-                }
-                
-                #email-verify hr {
-                    border: 1px solid #BDBDBD;
-                }
-                
-                #email-verify button {
-                    background: #2B377A;
-                    color: white;
-                    font-family: "Lato";
-                }
-                
-                #email-verify button:hover {
-                    background-color: #2B377A;
-                    color: white;
-                    font-family: "Lato";
-                }
-                
-                #email-verify #p3 {
-                    height: 16px;
-                    padding-top: 16px;
-                    font-family: "Lato";
-                    font-size: 13px;
-                    line-height: 16px;
-                    color: #7D7D7D;
-                }
+                    #sidebar1 {
+                        background: #2B377A;
+                        align-items: center;
+                        text-align: center;
+                        height: 855px;
+                    }
+                    
+                    #sidebar1 #logo {
+                        height: 40px;
+                        padding-top: 105px;
+                        font-family: "Helvetic"a;
+                        font-size: 28px;
+                        line-height: 40px;
+                        color: #FFFFFF;
+                    }
+                    
+                    #sidebar1 #p1 {
+                        height: 80px;
+                        padding-top: 83px;
+                        font-family: "Helvetica";
+                        font-size: 28px;
+                        line-height: 40px;
+                        color: #39DBFF;
+                    }
+                    
+                    #sidebar1 #p2 {
+                        height: 48px;
+                        padding-top: 88px;
+                        font-family: "Rubik";
+                        font-size: 16px;
+                        line-height: 24px;
+                        letter-spacing: -0.01em;
+                        color: #FFFFFF;
+                    }
+                    
+                    #sidebar1 #p3 {
+                        height: 19px;
+                        padding-top: 360px;
+                        font-family: "Lato";
+                        font-size: 16px;
+                        line-height: 19px;
+                        color: #FFFFFF;
+                    }
+                    
+                    .login-form {
+                        height: 855px;
+                        background: #FFFFFF;
+                    }
+                    
+                    .login-form #p1 {
+                        height: 28px;
+                        padding-top: 220px;
+                        font-family: "Helvetica";
+                        font-size: 24px;
+                        line-height: 28px;
+                        color: #525252;
+                    }
+                    
+                    .login-form #p2 {
+                        height: 23px;
+                        padding-top: 52px;
+                        font-family: "Helvetica";
+                        font-size: 20px;
+                        line-height: 23px;
+                        color: #777777;
+                    }
+                    
+                    .login-form #p3 {
+                        height: 16px;
+                        padding-top: 20px;
+                        font-family: "Lato";
+                        font-size: 13px;
+                        line-height: 16px;
+                        color: #7D7D7D;
+                    }
+                    
+                    .login-form #li1,
+                    #li2 {
+                        padding-top: 39px;
+                    }
+                    
+                    .login-form #email_signin,
+                    #password_signin {
+                        font-family: "Lato";
+                        color: #525252;
+                    }
+                    
+                    .login-form .form-control:focus {
+                        border: 1.5px solid #3c4caa;
+                        box-shadow: none;
+                    }
+                    
+                    .login-form button {
+                        background: #2B377A;
+                        color: white;
+                        font-family: "Lato";
+                    }
+                    
+                    .login-form button:hover {
+                        background-color: #2B377A;
+                        color: white;
+                        font-family: "Lato";
+                    }
+                    
+                    .signup-form {
+                        height: 855px;
+                        background: #FFFFFF;
+                    }
+                    
+                    .signup-form #p1 {
+                        height: 28px;
+                        padding-top: 188px;
+                        font-family: "Helvetica";
+                        font-size: 24px;
+                        line-height: 28px;
+                        color: #525252;
+                    }
+                    
+                    .signup-form #p2 {
+                        height: 16px;
+                        padding-top: 20px;
+                        font-family: "Lato";
+                        font-size: 13px;
+                        line-height: 16px;
+                        color: #7D7D7D;
+                    }
+                    
+                    .signup-form #l1 {
+                        padding-top: 68px;
+                    }
+                    
+                    .signup-form #l2,
+                    #l3,
+                    #l4 {
+                        padding-top: 16px;
+                    }
+                    
+                    .signup-form .form-control:focus {
+                        border: 1.5px solid #3c4caa;
+                        box-shadow: none;
+                    }
+                    
+                    .signup-form button {
+                        background: #2B377A;
+                        color: white;
+                        font-family: "Lato";
+                    }
+                    
+                    .signup-form button:hover {
+                        background-color: #2B377A;
+                        color: white;
+                        font-family: "Lato";
+                    }
+                    
+                    #email-verify #p1 {
+                        height: 28px;
+                        padding-top: 192px;
+                        font-family: "Helvetica";
+                        font-size: 24px;
+                        line-height: 28px;
+                        color: #525252;
+                    }
+                    
+                    #email-verify #p2 {
+                        height: 56px;
+                        padding-top: 52px;
+                        font-family: "Helvetica";
+                        font-size: 20px;
+                        line-height: 28px;
+                        color: #777777;
+                    }
+                    
+                    #email-verify #email {
+                        height: 48px;
+                        font-family: "Helvetica";
+                        font-weight: 300;
+                        font-size: 30px;
+                        line-height: 48px;
+                        color: #525252;
+                        box-shadow: none;
+                        border: none;
+                    }
+                    
+                    #email-verify #otp {
+                        height: 48px;
+                        font-family: "Helvetica";
+                        font-weight: 300;
+                        font-size: 42px;
+                        line-height: 48px;
+                        letter-spacing: 0.6em;
+                        color: #525252;
+                        box-shadow: none;
+                        border: none;
+                    }
+                    
+                    #email-verify hr {
+                        border: 1px solid #BDBDBD;
+                    }
+                    
+                    #email-verify button {
+                        background: #2B377A;
+                        color: white;
+                        font-family: "Lato";
+                    }
+                    
+                    #email-verify button:hover {
+                        background-color: #2B377A;
+                        color: white;
+                        font-family: "Lato";
+                    }
+                    
+                    #email-verify #p3 {
+                        height: 16px;
+                        padding-top: 16px;
+                        font-family: "Lato";
+                        font-size: 13px;
+                        line-height: 16px;
+                        color: #7D7D7D;
+                    }
