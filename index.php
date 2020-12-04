@@ -39,6 +39,10 @@
                         <!-- Login script -->
                         <?php include('./controllers/login.php'); ?>
                     </div>
+                    <div>
+                        <?php echo $accountNotExistErr; ?>
+                        <?php echo $verificationRequiredErr; ?>
+                    </div>
                     <!-- Login form -->
                     <div class="login-form">
                         <p id="p1"><b>Login</b></p>
@@ -47,10 +51,16 @@
 
                             <div class="form-group" id="li1">
                                 <input type="email" class="form-control" name="email_signin" id="email_signin" placeholder="Enter Email" />
+
+                                <?php echo $emailPwdErr; ?>
+                                <?php echo $email_empty_err; ?>
                             </div>
 
                             <div class="form-group" id="li2">
                                 <input type="password" class="form-control" name="password_signin" id="password_signin" placeholder="Enter Password" />
+
+                                <?php echo $wrongPwdErr; ?>
+                                <?php echo $pass_empty_err; ?>
                             </div>
 
 
