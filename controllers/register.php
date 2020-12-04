@@ -96,7 +96,7 @@
                     // Send verification email
                     if($sqlQuery) {
                         $msg = 'Your OTP for verifying : '.$token.'<br> Or <br><br>Click on the activation link to verify your email. <br><br>
-                        <a href="http://localhost/php-auth/mail_verify.php?email='.$email.'"> Click here to verify email</a>
+                        <a href="http://localhost/tansim_auth/mail_verify.php?email='.$email.'"> Click here to verify email</a>
                       ';
 
                       // Create the Transport
