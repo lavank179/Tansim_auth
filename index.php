@@ -35,27 +35,28 @@
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lg-1"></div>
                 <div class="col-sm-9 col-md-9 col-lg-9">
+                    <div>
+                        <!-- Login script -->
+                        <?php include('./controllers/login.php'); ?>
+                    </div>
                     <!-- Login form -->
                     <div class="login-form">
-                                <p id="p1"><b>Login</b></p>
-                                <p id="p2">Hello there! Welcome Back</p>
-                                <form action="" method="post">
+                        <p id="p1"><b>Login</b></p>
+                        <p id="p2">Hello there! Welcome Back</p>
+                        <form action="" method="post">
 
-                                    <div class="form-group" id="li1">
-                                        <input type="email" class="form-control" name="email_signin" id="email_signin" placeholder="Enter Email" />
-                                    </div>
+                            <div class="form-group" id="li1">
+                                <input type="email" class="form-control" name="email_signin" id="email_signin" placeholder="Enter Email" />
+                            </div>
 
-                                    <div class="form-group" id="li2">
-                                        <input type="password" class="form-control" name="password_signin" id="password_signin" placeholder="Enter Password" />
-                                    </div>
+                            <div class="form-group" id="li2">
+                                <input type="password" class="form-control" name="password_signin" id="password_signin" placeholder="Enter Password" />
+                            </div>
 
-                                    <div>
-                                        <!-- Login script -->
-                                        <?php include('./controllers/login.php'); ?>
-                                    </div>
-                                    <button type="submit" name="login" id="sign_in" class="btn btn-outline-primary btn-lg btn-block">Sign
-                                        in</button>
-                                </form>
+
+                            <button type="submit" name="login" id="sign_in" class="btn btn-outline-primary btn-lg btn-block">Sign
+                                in</button>
+                        </form>
                     </div>
                 </div>
                 <div class="col-sm-2 col-md-2 col-lg-2"></div>
