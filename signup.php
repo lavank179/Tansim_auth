@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lg-1"></div>
                 <div class="col-sm-9 col-md-9 col-lg-9">
-
+                <div><?php include('./controllers/register.php'); ?></div>
                     <div class="signup-form">
                         <p id="p1"><b>Sign up for an account today.</b></p>
                         <form action="" method="post">
@@ -69,9 +69,10 @@
                                 <?php echo $mobileEmptyErr; ?>
                             </div>
 
-                            <div><?php include('./controllers/register.php'); ?></div>
+                            
                             <br><br><br>
-                            <button type="submit" name="submit" id="submit" class="btn btn-lg btn-block"> Create your account </button>
+                            <button type="submit" name="submit" id="submit" class="btn btn-lg btn-block"> CREATE YOUR ACCOUNT </button>
+                            <p id="p2">By Signing up, you agree to the Privacy Policy, Terms and Conditions.</p>
                         </form>
                     </div>
                 </div>

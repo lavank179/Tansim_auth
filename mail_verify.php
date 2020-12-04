@@ -39,6 +39,7 @@ if (isset($_GET['email'])) {
             <div class="row" id="email-verify">
                 <div class="col-sm-1 col-md-1 col-lg-1"></div>
                 <div class="col-sm-9 col-md-9 col-lg-9">
+                <div><?php include('./controllers/user_activation.php'); ?></div>
                     <p id="p1"><b>Email Verification</b></p>
                     <p id="p2">We need to verify your email address before<br> getting started!</p>
                     <div class="col-12 mb-5 text-center">
@@ -53,14 +54,14 @@ if (isset($_GET['email'])) {
                                 <input type="text" class="form-control" name="token" id="firstName" />
                                 <hr />
                             </div>
-                            <div><?php include('./controllers/user_activation.php'); ?></div>
-                            <button type="submit" id="submit" class="btn btn-lg btn-block">Verify</button>
+                            
+                            <button type="submit" id="submit" class="btn btn-lg btn-block">VERIFY</button>
                         </form>
                     </div>
                     <p id="p3">By Signing up, you agree to the Privacy Policy, Terms and Conditions.</p>
                     <br><br>
                     <div class="container-fluid" style="text-align: center;">
-                        <a href="http://localhost/tansim_auth/resend-otp.php?email=<?php echo $email; ?>"> Resend OTP </a>
+                        <a href="http://localhost/tansim_auth/resend-otp.php?email=<?php echo $email; ?>" class="btn btn-lg btn-primary"> Resend OTP </a>
                         <?php
                             if ($vf == 1) {
                                 header('location:index.php');

@@ -54,9 +54,9 @@
                             </div>
 
 
-                            <button type="submit" name="login" id="sign_in" class="btn btn-outline-primary btn-lg btn-block">Sign
-                                in</button>
+                            <button type="submit" name="login" id="sign_in" class="btn btn-lg btn-block">LOGIN</button>
                         </form>
+                        <p id="p3">By Signing up, you agree to the Privacy Policy, Terms and Conditions.</p>
                     </div>
                 </div>
                 <div class="col-sm-2 col-md-2 col-lg-2"></div>
