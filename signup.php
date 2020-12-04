@@ -56,10 +56,10 @@
                             </div>
 
                             <div class="form-group" id="l3">
-                                <input type="password" class="form-control" id="password" placeholder="Confirm Password" />
+                                <input type="password" class="form-control" name="confirmpassword" id="password" placeholder="Confirm Password" />
 
-                                <?php echo $_passwordErr; ?>
-                                <?php echo $passwordEmptyErr; ?>
+                                <?php echo $_cpasswordErr; ?>
+                                <?php echo $cpasswordEmptyErr; ?>
                             </div>
 
                             <div class="form-group" id="l4">
