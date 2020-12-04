@@ -61,6 +61,11 @@ if (isset($_GET['email'])) {
                     <br><br>
                     <div class="container-fluid" style="text-align: center;">
                         <a href="http://localhost/tansim_auth/resend-otp.php?email=<?php echo $email; ?>"> Resend OTP </a>
+                        <?php
+                            if ($vf == 1) {
+                                header('location:index.php');
+                            }
+                        ?>
                     </div>
                 </div>
                 <div class="col-sm-2 col-md-2 col-lg-2"></div>
