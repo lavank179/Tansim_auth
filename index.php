@@ -22,7 +22,7 @@
                 <p id="logo"><b>TANSIM LOGO</b></p>
                 <p id="p1"><b>Entrepreneurship Development<br> and Innovation Institute</b></p>
                 <p id="p2">It provides various information such as details<br> about. Startup ecosystem in State, events.</p>
-                <p id="p3"><a href="#" style="text-decoration: none; color: #FFFFFF;">Don’t have an account? Sign up</a></p>
+                <p id="p3"><a href="http://localhost/tansim_auth/signup.php" style="text-decoration: none; color: #FFFFFF;">Don’t have an account? Sign up</a></p>
             </div>
 
         </div>
