@@ -64,7 +64,11 @@
                         <a href="http://localhost/tansim_auth/resend-otp.php?email=<?php echo $email; ?>" class="btn btn-lg btn-primary"> Resend OTP </a>
                         <?php
                         if ($vf == 1) {
-                            header('location:index.php');
+                            $message = "Email Verified Successfully!  Thank You for being a TANSIM member";
+                            echo "<script>
+                                alert('$message');
+                                window.location.href='http://localhost/tansim_auth/index.php';
+                                </script>";
                         }
                         ?>
                     </div>

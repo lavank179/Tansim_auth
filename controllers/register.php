@@ -127,7 +127,11 @@
                               Verification email has been sent!
                           </div>';
 
-                          header('location:mail_verify.php?email='.$email);
+                          $message = "verification Code has been sent to your email.";
+                            echo "<script>
+                                alert('$message');
+                                window.location.href='http://localhost/tansim_auth/mail_verify.php?email=$email';
+                                </script>";
                       }
                     }
                 }
