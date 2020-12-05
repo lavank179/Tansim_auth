@@ -217,3 +217,14 @@
                         line-height: 16px;
                         color: #7D7D7D;
                     }
+                    
+                    #home .navbar {
+                        height: 72px;
+                        background-color: #FFFFFF;
+                        font-family: "Roboto";
+                    }
+                    
+                    #home .userA img {
+                        width: 30px;
+                        height: 30px;
+                    }
