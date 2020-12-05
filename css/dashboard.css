@@ -1,0 +1,13 @@
+    body {
+        background-color: #F4F6F8;
+    }
+    
+    #home .navbar {
+        height: 72px;
+        background-color: #FFFFFF;
+    }
+    
+    #home .userA img {
+        width: 30px;
+        height: 30px;
+    }
