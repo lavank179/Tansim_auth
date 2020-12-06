@@ -81,6 +81,7 @@
                                 <p class="card-text"> '.$row['short_des'].' </p>
                                 <p class="card-text"> '.$row['brief_des'].' </p>
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <a href="http://localhost/tansim_auth/editevent.php?id='.$row['id'].'"> Edit </a>
                             </div>
                         </div>
                     </div>
