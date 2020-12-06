@@ -12,6 +12,7 @@ global $titleEmptyErr, $short_desEmptyErr, $locationEmptyErr, $eventdateEmptyErr
 $_title = $_short_des = $_location = $_eventdate = $_mobile_number = $_industries = $_sector = $_image = $_payment = $_reglink = $_brief_des = "";
 
 if (isset($_POST["submit"])) {
+
     $title         = $_POST["title"];
     $short_des     = $_POST["short_des"];
     $location      = $_POST["location"];
@@ -20,8 +21,7 @@ if (isset($_POST["submit"])) {
     $mobile        = $_POST["mobilenumber"];
     $industries    = $_POST["industries"];
     $sector        = $_POST["sector"];
-    $image         = $_POST["image"];
-    $payment       = $_POST["payment"];
+    $payment       = $_POST["eventpayment"];
     $reglink       = $_POST["reglink"];
     $brief_des     = $_POST["brief_des"];
 
@@ -29,16 +29,17 @@ if (isset($_POST["submit"])) {
     // Verify if form values are not empty
     if (
         !empty($title) && !empty($short_des) && !empty($location) && !empty($eventdate) && !empty($mobile) && !empty($industries)
-        && !empty($sector) && !empty($image) && !empty($payment) && !empty($reglink) && !empty($brief_des)
+        && !empty($sector) && !empty($payment) && !empty($reglink) && !empty($brief_des)
     ) {
 
-        if (!preg_match("/^[a-zA-Z0-9]{10,50}*$/", $title)) {
+
+        if (!preg_match("/^[a-zA-Z0-9_ ]{5,50}+$/", $title)) {
             $_titleErr = '<div class="alert alert-danger">
                         Title should be 10 - 50 characters.
                     </div>';
         }
 
-        if (!preg_match("/^[a-zA-Z0-9]{8,25}*$/", $location)) {
+        if (!preg_match("/^[a-zA-Z0-9_ ]{8,25}+$/", $location)) {
             $_locationErr = '<div class="alert alert-danger">
                         Location should be 10 - 50 characters.
                     </div>';
@@ -50,39 +51,39 @@ if (isset($_POST["submit"])) {
                     </div>';
         }
 
-        if (!preg_match("/^[a-zA-Z0-9]{5,20}*$/", $industries)) {
+        if (!preg_match("/^[a-zA-Z0-9_ ]{5,20}+$/", $industries)) {
             $_industriesErr = '<div class="alert alert-danger">
                         Industries should be 5 - 20 characters.
                     </div>';
         }
 
-        if (!preg_match("/^[a-zA-Z0-9]{5,15}*$/", $sector)) {
+        if (!preg_match("/^[a-zA-Z0-9_ ]{5,15}+$/", $sector)) {
             $_sectorErr = '<div class="alert alert-danger">
                         Sector should be 5 - 15 characters.
                     </div>';
         }
 
-        if (!preg_match("/^(?=.*[a-z0-9])[a-z0-9!@#$%&*.]{25,150}$/i", $short_des)) {
+        if (strlen($short_des) < 10) {
             $_short_desErr = '<div class="alert alert-danger">
-                        Short Description should be 25 - 150 characters.
+                        Short Description should not be less than 10 characters.
                     </div>';
         }
 
 
-        if (!preg_match("/^(?=.*[a-z0-9])[a-z0-9!@#$%&*.]{50,300}$/i", $brief_des)) {
+        if (strlen($brief_des) < 10) {
             $_brief_desErr = '<div class="alert alert-danger">
-                        Brief Description should be 50 - 300 characters.
+                        Brief Description should not be less than characters.
                     </div>';
         }
 
-        if ((preg_match("/^[a-zA-Z0-9]{10,50}*$/", $title)) && (preg_match("/^[a-zA-Z0-9]{8,25}*$/", $location)) &&
-            (preg_match("/^[0-9]{10}+$/", $mobile)) && (preg_match("/^[a-zA-Z0-9]{5,20}*$/", $industries)) &&
-            (preg_match("/^[a-zA-Z0-9]{5,15}*$/", $sector)) && (preg_match("/^(?=.*[a-z0-9])[a-z0-9!@#$%&*.]{25,150}$/i", $short_des)) &&
-            (preg_match("/^(?=.*[a-z0-9])[a-z0-9!@#$%&*.]{50,300}$/i", $brief_des))
+
+        if ((!preg_match("/^[a-zA-Z0-9_ ]{10,50}+$/", $title)) && (!preg_match("/^[a-zA-Z0-9_ ]{8,25}+$/", $location)) &&
+            (!preg_match("/^[0-9]{10}+$/", $mobile)) && (!preg_match("/^[a-zA-Z0-9_ ]{5,20}+$/", $industries)) &&
+            (strlen($short_des) < 10) && (strlen($brief_des) < 10)
         ) {
-
+            echo "<h1> Not ok </h1>";
+        } else {
             if (isset($_FILES['bannerimage']) && $_FILES['bannerimage']['error'] === UPLOAD_ERR_OK) {
-
 
                 $allowedfileExtensions = array('jpg', 'png', 'jpeg');
 
@@ -94,7 +95,8 @@ if (isset($_POST["submit"])) {
                 $fileNameCmps = explode(".", $fileName);
                 $fileExtension = strtolower(end($fileNameCmps));
 
-                $uploadFileDir = './uploaded_files/';
+
+                $uploadFileDir = 'C:/xampp/htdocs/tansim_auth/controllers/uploaded_files/';
                 $dest_path = $uploadFileDir . $fileName;
 
                 if (in_array($fileExtension, $allowedfileExtensions)) {
@@ -107,7 +109,7 @@ if (isset($_POST["submit"])) {
 
                         // Query
                         $sql = "INSERT INTO events (email, title, short_des, location, eventdate, eventtime, mobilenumber, industries, sector, 
-                        image, payment, reglink, brief_des)
+                        image, payment, reglink, brief_des, created_time)
                          VALUES ('{$email}', '{$title}', '{$short_des}', '{$location}','{$eventdate}', '{$time}', '{$mobile}', '{$industries}',
                          '{$sector}', '{$imagef}', '{$payment}', '{$reglink}', '{$brief_des}', now())";
 
@@ -144,62 +146,62 @@ if (isset($_POST["submit"])) {
 
         if (empty($title)) {
             $titleEmptyErr = '<div class="alert alert-danger">
-                    Email can not be blank.
+                    Title can not be blank.
                 </div>';
         }
         if (empty($short_des)) {
             $short_desEmptyErr = '<div class="alert alert-danger">
-                    Email can not be blank.
+                    description can not be blank.
                 </div>';
         }
         if (empty($location)) {
             $locationEmptyErr = '<div class="alert alert-danger">
-                    Mobile number can not be blank.
+                    Location number can not be blank.
                 </div>';
         }
         if (empty($eventdate)) {
             $eventdateEmptyErr = '<div class="alert alert-danger">
-                    Password can not be blank.
+                    Date can not be blank.
                 </div>';
         }
         if (empty($_time)) {
             $eventtimeEmptyErr = '<div class="alert alert-danger">
-                    Password can not be blank.
+                    Time can not be blank.
                 </div>';
         }
         if (empty($mobile)) {
             $mobileEmptyErr = '<div class="alert alert-danger">
-                    Password can not be blank.
+                    Mobile Number can not be blank.
                 </div>';
         }
         if (empty($industries)) {
             $industriesEmptyErr = '<div class="alert alert-danger">
-                    Password can not be blank.
+                    Industries can not be blank.
                 </div>';
         }
         if (empty($sector)) {
             $sectorEmptyErr = '<div class="alert alert-danger">
-                    Password can not be blank.
+                    Sector can not be blank.
                 </div>';
         }
-        if (empty($image)) {
-            $imageEmptyErr = '<div class="alert alert-danger">
-                    Password can not be blank.
-                </div>';
-        }
+        // if (empty($image)) {
+        //     $imageEmptyErr = '<div class="alert alert-danger">
+        //             Password can not be blank.
+        //         </div>';
+        //}
         if (empty($payment)) {
             $paymentEmptyErr = '<div class="alert alert-danger">
-                    Password can not be blank.
+                    Payment can not be blank.
                 </div>';
         }
         if (empty($reglink)) {
             $reglinkEmptyErr = '<div class="alert alert-danger">
-                    Password can not be blank.
+                    Link can not be blank.
                 </div>';
         }
         if (empty($brief_des)) {
             $brief_desEmptyErr = '<div class="alert alert-danger">
-                    Password can not be blank.
+                    description can not be blank.
                 </div>';
         }
     }

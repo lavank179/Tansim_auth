@@ -32,6 +32,7 @@
                     <div class="row">
                         <div class="col-sm-1 col-md-1 col-lg-1"></div>
                         <div class="col-sm-10 col-md-10 col-lg-10">
+                            <?php echo $success_msg; ?>
                             <p id="p1"><b>Add Events</b></p>
                             <hr>
                             <form action="" method="post" enctype="multipart/form-data">
@@ -101,11 +102,11 @@
                                     <div class="form-group col-md-6">
                                         <label for="payment" id="l9"> Events Payment </label><br>
                                         <div class="custom-control custom-radio custom-control-inline pt-4" style="text-align: center;">
-                                            <input type="radio" id="customRadioInline1" name="eventpayment" class="custom-control-input" val="free">
+                                            <input type="radio" id="customRadioInline1" name="eventpayment" class="custom-control-input" value="free">
                                             <label class="custom-control-label" for="customRadioInline1"> Free </label>
                                         </div>
                                         <div class="custom-control custom-radio custom-control-inline pt-4" style="text-align: center;">
-                                            <input type="radio" id="customRadioInline2" name="eventpayment" class="custom-control-input" val="paid">
+                                            <input type="radio" id="customRadioInline2" name="eventpayment" class="custom-control-input" value="paid">
                                             <label class="custom-control-label" for="customRadioInline2"> Paid </label>
                                         </div>
                                     </div>
