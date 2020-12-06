@@ -1,3 +1,7 @@
+<?php
+if (isset($_SESSION['email'])) { ?>
+
+
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
 
     <a class="navbar-brand pl-5 pr-3" href="#home"><img src="#"> TANSIM </a>
@@ -33,3 +37,10 @@
     </div>
 
 </nav>
+
+<?php } else {
+    echo "<script>
+         alert('A valid session was not exist. Please Login to Access.');
+         window.location.href='http://localhost/tansim_auth';
+         </script>";
+} ?>
