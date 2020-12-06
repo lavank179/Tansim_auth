@@ -121,3 +121,8 @@
         font-size: 20px;
         color: #5E5E5E;
     }
+    
+    .no-gutters img {
+        width: 263px;
+        height: 223px;
+    }

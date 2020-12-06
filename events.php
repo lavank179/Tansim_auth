@@ -60,7 +60,36 @@
                     <button class="btn btn-primary btn-md"> Add Events </button>
                 </div>
             </div>
+
+            <div class="">
+
+            <?php 
+                $email = $_SESSION['email'];
+                $queryEvent = "SELECT * FROM events WHERE email='$email'";
+                $result = mysqli_query($conn, $queryEvent);
+
+                while ($row = mysqli_fetch_array($result)) {
+                    
+                echo '<div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <img src="./controllers/uploaded_files/'.$row['image'].'" class="card-img" alt="...">
+                            </div>
+                        <div class="col-sm-9 col-md-9 col-lg-9">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+                
+                } ?>
+
+            </div>
         </div>
+
 
         <div class="col-sm-1 col-md-1 col-lg-1"></div>
     </div>
