@@ -15,7 +15,7 @@ if (isset($_SESSION['email'])) { ?>
                 <a class="nav-link" href="http://localhost/tansim_auth/dashboard.php"><button class="btn btn-outline-secondary"> Dashboard </button></a>
             </li>
             <li class="nav-item hoverable">
-                <a class="nav-link" href="#about"><button class="btn btn-outline-secondary"> Events </button></a>
+                <a class="nav-link" href="http://localhost/tansim_auth/events.php"><button class="btn btn-outline-secondary"> Events </button></a>
             </li>
 
             <li class="nav-item hoverable">

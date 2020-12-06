@@ -98,3 +98,26 @@
         border-radius: 4px;
         box-shadow: none;
     }
+    
+    #pag {
+        padding-top: 123px;
+    }
+    
+    #pag #p1 {
+        font-family: "Helvetica";
+        font-size: 15px;
+        color: #5E5E5E;
+        text-decoration: none !important;
+    }
+    
+    #pag a img {
+        width: 27px;
+        height: 27px;
+    }
+    
+    #pag #p2 {
+        padding-top: 46px;
+        font-family: "Helvetica";
+        font-size: 20px;
+        color: #5E5E5E;
+    }
