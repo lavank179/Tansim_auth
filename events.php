@@ -69,6 +69,11 @@
                 $result = mysqli_query($conn, $queryEvent);
 
                 while ($row = mysqli_fetch_array($result)) {
+
+                    $dated = $row['eventdate'];
+                    $timed = $row['eventtime'];
+                    $dated = date("d F, y", strtotime($dated));
+                    $timed = date("h:i A", strtotime($timed));
                     
                 echo '<div class="card mb-3">
                     <div class="row no-gutters">
@@ -77,11 +82,26 @@
                             </div>
                         <div class="col-sm-9 col-md-9 col-lg-9">
                             <div class="card-body">
-                                <h5 class="card-title"> '.$row['title'].'</h5>
-                                <p class="card-text"> '.$row['short_des'].' </p>
-                                <p class="card-text"> '.$row['brief_des'].' </p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                <a href="http://localhost/tansim_auth/editevent.php?id='.$row['id'].'"> Edit </a>
+                            <div class=row>
+                            <div class="col-sm-8 col-md-8 col-lg-8">
+                                <p class="p3"><b> '.$row['title'].'</b></p>
+                                <p class="p4"> '.$row['short_des'].' </p>
+                                <p class="p5"> '.$row['industries'].' - '.$row['location'].' </p>
+                                <p class="card-text p6">
+                                    <div class="text-muted small">
+                                    <img src="https://img.icons8.com/color/96/000000/calendar.png"/> '. $dated .' <img src="https://img.icons8.com/material-outlined/24/000000/clock.png"/> '.$timed.' 
+                                    </div>
+                                </p>
+                                
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="lake">
+                                        <a href="http://localhost/tansim_auth/editevent.php?id='.$row['id'].'">
+                                        <span class="btn btn-md btn-primary btn-edit"><i class="bi bi-pencil-square"></i> Edit </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
                         </div>
                     </div>

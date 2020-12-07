@@ -126,3 +126,38 @@
         width: 263px;
         height: 223px;
     }
+    
+    .no-gutters .card-title {
+        height: 52px;
+        padding-top: 10px;
+        font-family: "Helvetica";
+        font-size: 20px;
+        line-height: 26px;
+        color: #333333;
+    }
+    
+    .no-gutters .p4 {
+        color: #333333;
+    }
+    
+    .no-gutters .p5 {
+        height: 22px;
+        font-family: "Lato";
+        font-size: 16px;
+        line-height: 22px;
+        color: #5E5E5E;
+    }
+    
+    .no-gutters .small {
+        margin-top: 40px;
+    }
+    
+    .no-gutters .small img {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .no-gutters .lake .btn-primary img {
+        width: 10px;
+        height: 10px;
+    }
