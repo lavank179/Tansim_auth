@@ -20,7 +20,7 @@
                 <p id="logo"><b>TANSIM LOGO</b></p>
                 <p id="p1"><b>Entrepreneurship Development<br> and Innovation Institute</b></p>
                 <p id="p2">It provides various information such as details<br> about. Startup ecosystem in State, events.</p>
-                <p id="p3"><a href="http://localhost/tansim_auth/index.php" style="text-decoration: none; color: #FFFFFF;">Have an account? Login</a></p>
+                <p id="p3"><a href="https://lavankumar.000webhostapp.com/tansim_auth/" style="text-decoration: none; color: #FFFFFF;">Have an account? Login</a></p>
             </div>
         </div>
 
@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-sm-1 col-md-1 col-lg-1"></div>
                 <div class="col-sm-9 col-md-9 col-lg-9">
-                <div><?php include('./controllers/register.php'); ?></div>
+                    <div><?php include('./controllers/register.php'); ?></div>
                     <div class="signup-form">
                         <p id="p1"><b>Sign up for an account today.</b></p>
                         <form action="" method="post">
@@ -63,13 +63,13 @@
                             </div>
 
                             <div class="form-group" id="l4">
-                                <input type="text" class="form-control" name="mobilenumber" id="mobilenumber" placeholder="Mobile Number"/>
+                                <input type="text" class="form-control" name="mobilenumber" id="mobilenumber" placeholder="Mobile Number" />
 
                                 <?php echo $_mobileErr; ?>
                                 <?php echo $mobileEmptyErr; ?>
                             </div>
 
-                            
+
                             <br><br><br>
                             <button type="submit" name="submit" id="submit" class="btn btn-lg btn-block"> CREATE YOUR ACCOUNT </button>
                             <p id="p2">By Signing up, you agree to the Privacy Policy, Terms and Conditions.</p>

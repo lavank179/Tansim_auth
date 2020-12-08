@@ -3,8 +3,9 @@
 // Database connection
 include('config/db.php');
 
-// Swiftmailer lib
-require_once './lib/vendor/autoload.php';
+require_once 'PHPMailer/src/Exception.php';
+require_once 'PHPMailer/src/PHPMailer.php';
+require_once 'PHPMailer/src/SMTP.php';
 
 // Error & success messages
 global $success_msg, $email_exist, $_emailErr, $_mobileErr, $_passwordErr, $_cpasswordErr;
@@ -94,32 +95,29 @@ if (isset($_POST["submit"])) {
 
                     // Send verification email
                     if ($sqlQuery) {
-                        $msg = 'Your OTP for verifying : ' . $token . '<br> Or <br><br>Click on the activation link to verify your email. <br><br>
+                        
+                        
+                        $mail = new PHPMailer\PHPMailer\PHPMailer();
+                        $mail->isSMTP();
+                        $mail->Host = 'smtp-mail.outlook.com';
+                        $mail->Port = 587;
+                        $mail->SMTPSecure = "tls";  
+                        $mail->SMTPAuth = true;
+                        $mail->Username = 'ram-lavan17@outlook.com';
+                        $mail->Password = 'LAVAN@801kumar';
+                        $mail->setFrom('ram-lavan17@outlook.com');
+                        $mail->addAddress($email);
+                        $mail->isHTML(true);
+                        $mail->Subject = 'Please Verify Email Address!';
+                        $mail->Body    = 'Your OTP for verifying : ' . $token . '<br> Or <br><br>Click on the activation link to verify your email. <br><br>
                         <a href="http://localhost/tansim_auth/mail_verify.php?email=' . $email . '"> Click here to verify email</a>
                       ';
-
-                        // Create the Transport
-                        $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-                            ->setUsername('chlavankumar179@gmail.com')
-                            ->setPassword("lavan@801KUMAR");
-
-                        // Create the Mailer using your created Transport
-                        $mailer = new Swift_Mailer($transport);
-
-                        // Create a message
-                        $firstname = "TANSIM";
-                        $message = (new Swift_Message('Please Verify Email Address!'))
-                            ->setFrom([$email => $firstname])
-                            ->setTo($email)
-                            ->addPart($msg, "text/html")
-                            ->setBody('Hello! User');
-
-                        // Send the message
-                        $result = $mailer->send($message);
-
+                        
+                        $result = $mail->send();
+                        echo $result;
                         if (!$result) {
                             $email_verify_err = '<div class="alert alert-danger">
-                                  Verification email coud not be sent!
+                                  Verification email coud not be sent!  '. $mail->ErrorInfo .'
                           </div>';
                         } else {
                             $email_verify_success = '<div class="alert alert-success">
@@ -129,7 +127,7 @@ if (isset($_POST["submit"])) {
                             $message = "verification Code has been sent to your email.";
                             echo "<script>
                                 alert('$message');
-                                window.location.href='http://localhost/tansim_auth/mail_verify.php?email=$email';
+                                window.location.href='https://lavankumar.000webhostapp.com/tansim_auth/mail_verify.php?email=$email';
                                 </script>";
                         }
                     }

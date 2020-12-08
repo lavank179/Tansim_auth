@@ -22,7 +22,7 @@
                 <p id="logo"><b>TANSIM LOGO</b></p>
                 <p id="p1"><b>Entrepreneurship Development<br> and Innovation Institute</b></p>
                 <p id="p2">It provides various information such as details<br> about. Startup ecosystem in State, events.</p>
-                <p id="p3"><a href="http://localhost/tansim_auth/signup.php" style="text-decoration: none; color: #FFFFFF;">Don’t have an account? Sign up</a></p>
+                <p id="p3"><a href="https://lavankumar.000webhostapp.com/tansim_auth/signup.php" style="text-decoration: none; color: #FFFFFF;">Don’t have an account? Sign up</a></p>
             </div>
 
         </div>
@@ -37,7 +37,8 @@
                 <div class="col-sm-9 col-md-9 col-lg-9">
                     <div>
                         <!-- Login script -->
-                        <?php include('./controllers/login.php'); ?>
+                        <?php
+                        include('./controllers/login.php'); ?>
                     </div>
                     <div>
                         <?php echo $accountNotExistErr; ?>
@@ -60,7 +61,8 @@
                                 <input type="password" class="form-control" name="password_signin" id="password_signin" placeholder="Enter Password" />
 
                                 <?php echo $wrongPwdErr; ?>
-                                <?php echo $pass_empty_err; ?>
+                                <?php echo $pass_empty_err;
+                                ?>
                             </div>
 
 

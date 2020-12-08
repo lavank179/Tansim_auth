@@ -1,6 +1,5 @@
 <?php
 
-if (isset($_SESSION['email'])) {
     /// your code here
 
     // Database connection
@@ -96,11 +95,10 @@ if (isset($_SESSION['email'])) {
                     $fileExtension = strtolower(end($fileNameCmps));
 
 
-                    $uploadFileDir = 'C:/xampp/htdocs/tansim_auth/controllers/uploaded_files/';
+                    $uploadFileDir = 'http://lavankumar.000webhostapp.com/tansim_auth/controllers/uploaded_files/';
                     $dest_path = $uploadFileDir . $fileName;
 
                     if (in_array($fileExtension, $allowedfileExtensions)) {
-                        if (move_uploaded_file($fileTmpPath, $dest_path)) {
                             $time = DATE("H:i", STRTOTIME("$_time"));
                             $email = $_SESSION['email'];
                             $imagef = $fileName;
@@ -121,11 +119,6 @@ if (isset($_SESSION['email'])) {
                             } else {
                                 header("Location: ./dashboard.php");
                             }
-                        } else {
-                            $_imageErr = '<div class="alert alert-danger">
-                                        Image was not uploaded.
-                                      </div>';
-                        }
                     } else {
                         $_imageErr = '<div class="alert alert-danger">
                                         Only  png, jpg and jpeg file types are allowed.
@@ -200,9 +193,4 @@ if (isset($_SESSION['email'])) {
             }
         }
     }
-} else {
-    echo "<script>
-         alert('A valid session was not exist. Please Login to Access.');
-         window.location.href='http://localhost/tansim_auth';
-         </script>";
-}
+?>

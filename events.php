@@ -16,13 +16,13 @@
 </head>
 
 <body>
-
-    <header id="home">
-        <?php include('header.php'); ?>
-    </header>
-
     <?php
     if (isset($_SESSION['email'])) { ?>
+
+        <header id="home">
+            <?php include('header.php'); ?>
+        </header>
+
         <div class="row" id="pag">
             <div class="col-sm-1 col-md-1 col-lg-1"></div>
 
@@ -45,7 +45,7 @@
                         <p id="p2"> Events List </p>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right; padding-top: 20px">
-                        <button class="btn btn-primary btn-md"> Add Events </button>
+                        <a href="https://lavankumar.000webhostapp.com/tansim_auth/addevent.php"><button class="btn btn-primary btn-md"> Add Events </button></a>
                     </div>
                 </div>
 
@@ -106,22 +106,23 @@
 
             <div class="col-sm-1 col-md-1 col-lg-1"></div>
         </div>
+
+
+        <script>
+            $('.hoverable').mouseenter(function() {
+                $(this).addClass('shadow');
+            });
+            $('.hoverable').mouseleave(function() {
+                $(this).removeClass('shadow');
+            });
+        </script>
+
     <?php } else {
         echo "<script>
-                                    alert('A valid session was not exist. Please Login to Access.');
-                                    window.location.href='http://localhost/tansim_auth';
-                                  </script>";
+         alert('A valid session was not exist. Please Login to Access.');
+         window.location.href='https://lavankumar.000webhostapp.com/tansim_auth/';
+         </script>";
     } ?>
-
-
-    <script>
-        $('.hoverable').mouseenter(function() {
-            $(this).addClass('shadow');
-        });
-        $('.hoverable').mouseleave(function() {
-            $(this).removeClass('shadow');
-        });
-    </script>
 </body>
 
 </html>

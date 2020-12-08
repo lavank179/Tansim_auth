@@ -1,6 +1,10 @@
 <?php
 include('./config/db.php');
-require_once './lib/vendor/autoload.php';
+
+
+require_once './controllers/PHPMailer/src/Exception.php';
+require_once './controllers/PHPMailer/src/PHPMailer.php';
+require_once './controllers/PHPMailer/src/SMTP.php';
     
      $email = '';
      if(isset($_GET['email'])){
@@ -16,38 +20,39 @@ require_once './lib/vendor/autoload.php';
 
      // Send verification email
      if($update) {
-        $msg = 'Your OTP for verifying : '.$token.'<br> Or <br><br>Click on the activation link to verify your email. <br><br>
-        <a href="http://localhost/tansim_auth/mail_verify.php?email='.$email.'"> Click here to verify email</a>
-      ';
-
-      // Create the Transport
-      $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-      ->setUsername('chlavankumar179@gmail.com')
-      ->setPassword("lavan@801KUMAR");
-
-      // Create the Mailer using your created Transport
-      $mailer = new Swift_Mailer($transport);
-
-      // Create a message
-      $message = (new Swift_Message('Please Verify Email Address!'))
-      ->setFrom([$email => $firstname])
-      ->setTo($email)
-      ->addPart($msg, "text/html")
-      ->setBody('Hello! User');
-
-      // Send the message
-      $result = $mailer->send($message);
+        
+        $mail = new PHPMailer\PHPMailer\PHPMailer();
+                        $mail->isSMTP();
+                        $mail->Host = 'smtp-mail.outlook.com';
+                        $mail->Port = 587;
+                        $mail->SMTPSecure = "tls";  
+                        $mail->SMTPAuth = true;
+                        $mail->Username = 'ram-lavan17@outlook.com';
+                        $mail->Password = 'LAVAN@801kumar';
+                        $mail->setFrom('ram-lavan17@outlook.com');
+                        $mail->addAddress($email);
+                        $mail->isHTML(true);
+                        $mail->Subject = 'Please Verify Email Address!';
+                        $mail->Body    = 'Your OTP for verifying : ' . $token . '<br> Or <br><br>Click on the activation link to verify your email. <br><br>
+                        <a href="http://localhost/tansim_auth/mail_verify.php?email=' . $email . '"> Click here to verify email</a>
+                      ';
+                        
+                        $result = $mail->send();
           
       if(!$result){
           $email_verify_err = '<div class="alert alert-danger">
-                  Verification email coud not be sent!
+                  Verification email coud not be sent! '.$mail->ErrorInfo.'
           </div>';
       } else {
           $email_verify_success = '<div class="alert alert-success">
               Verification email has been sent!
           </div>';
-
-          header('location:mail_verify.php?email='.$email);
+          
+          $message = "verification Code has been sent to your email.";
+                            echo "<script>
+                                alert('$message');
+                                window.location.href='https://lavankumar.000webhostapp.com/tansim_auth/mail_verify.php?email=$email';
+                                </script>";
       }
     }
 

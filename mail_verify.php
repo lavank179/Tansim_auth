@@ -61,13 +61,13 @@
                     <p id="p3">By Signing up, you agree to the Privacy Policy, Terms and Conditions.</p>
                     <br><br>
                     <div class="container-fluid" style="text-align: center;">
-                        <a href="http://localhost/tansim_auth/resend-otp.php?email=<?php echo $email; ?>" class="btn btn-lg btn-primary"> Resend OTP </a>
+                        <a href="https://lavankumar.000webhostapp.com/tansim_auth/resend-otp.php?email=<?php echo $email; ?>" class="btn btn-lg btn-primary"> Resend OTP </a>
                         <?php
                         if ($vf == 1) {
                             $message = "Email Verified Successfully!  Thank You for being a TANSIM member";
                             echo "<script>
                                 alert('$message');
-                                window.location.href='http://localhost/tansim_auth/index.php';
+                                window.location.href='https://lavankumar.000webhostapp.com/tansim_auth/';
                                 </script>";
                         }
                         ?>

@@ -115,11 +115,15 @@
                                         <div class="form-group col-md-6">
                                             <label for="payment" id="l9"> Events Payment </label><br>
                                             <div class="custom-control custom-radio custom-control-inline pt-4" style="text-align: center;">
-                                                <input type="radio" id="customRadioInline1" name="eventpayment" class="custom-control-input" value="free" <?php if($row['payment']=="free"){ echo "checked";}?>>
+                                                <input type="radio" id="customRadioInline1" name="eventpayment" class="custom-control-input" value="free" <?php if ($row['payment'] == "free") {
+                                                                                                                                                                echo "checked";
+                                                                                                                                                            } ?>>
                                                 <label class="custom-control-label" for="customRadioInline1"> Free </label>
                                             </div>
                                             <div class="custom-control custom-radio custom-control-inline pt-4" style="text-align: center;">
-                                                <input type="radio" id="customRadioInline2" name="eventpayment" class="custom-control-input" value="paid" <?php if($row['payment']=="paid"){ echo "checked";}?>>
+                                                <input type="radio" id="customRadioInline2" name="eventpayment" class="custom-control-input" value="paid" <?php if ($row['payment'] == "paid") {
+                                                                                                                                                                echo "checked";
+                                                                                                                                                            } ?>>
                                                 <label class="custom-control-label" for="customRadioInline2"> Paid </label>
                                             </div>
                                         </div>
@@ -153,7 +157,7 @@
     <?php } else {
         echo "<script>
          alert('A valid session was not exist. Please Login to Access.');
-         window.location.href='http://localhost/tansim_auth';
+         window.location.href='https://lavankumar.000webhostapp.com/tansim_auth/';
          </script>";
     } ?>
 
