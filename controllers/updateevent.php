@@ -95,7 +95,7 @@
                     $fileExtension = strtolower(end($fileNameCmps));
 
 
-                    $uploadFileDir = 'http://lavankumar.000webhostapp.com/tansim_auth/controllers/uploaded_files/';
+                    $uploadFileDir = './uploaded_files/';
                     $dest_path = $uploadFileDir . $fileName;
 
                     if (in_array($fileExtension, $allowedfileExtensions)) {

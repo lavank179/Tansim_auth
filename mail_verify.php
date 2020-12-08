@@ -2,16 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Helvetica|Rubik|Lato" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>User Verification</title>
-
-    <!-- jQuery + Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <?php include('head.php'); ?>
 </head>
 
 <body>
@@ -23,7 +14,7 @@
                 <p id="logo"><b>TANSIM LOGO</b></p>
                 <p id="p1"><b>Entrepreneurship Development<br> and Innovation Institute</b></p>
                 <p id="p2">It provides various information such as details<br> about. Startup ecosystem in State, events.</p>
-                <p id="p3"><a href="http://localhost/tansim_auth/signup.php" style="text-decoration: none; color: #FFFFFF;">Don’t have an account? Sign up</a></p>
+                <p id="p3"><a href="signup.php" style="text-decoration: none; color: #FFFFFF;">Don’t have an account? Sign up</a></p>
             </div>
         </div>
 
@@ -41,11 +32,13 @@
                         <?php echo $activation_error; ?>
                     </div>
                     <div class="inner-block">
-                        <form method="get">
+                        <form method="post">
                             <?php
 
-                            if (isset($_GET['email'])) {
+                            if (isset($_SESSION['Vemail'])) {
 
+                                $email = $_SESSION['Vemail'];
+                            } else {
                                 $email = $_GET['email'];
                             }
                             ?>
@@ -61,7 +54,7 @@
                     <p id="p3">By Signing up, you agree to the Privacy Policy, Terms and Conditions.</p>
                     <br><br>
                     <div class="container-fluid" style="text-align: center;">
-                        <a href="https://lavankumar.000webhostapp.com/tansim_auth/resend-otp.php?email=<?php echo $email; ?>" class="btn btn-lg btn-primary"> Resend OTP </a>
+                        <a href="resend-otp.php?email=<?php echo $email; ?>" class="btn btn-lg btn-primary"> Resend OTP </a>
                         <?php
                         if ($vf == 1) {
                             $message = "Email Verified Successfully!  Thank You for being a TANSIM member";

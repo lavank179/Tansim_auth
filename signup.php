@@ -2,15 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Helvetica|Rubik|Lato" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>TANSIM SignUp</title>
-    <!-- jQuery + Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <?php include('head.php'); ?>
 </head>
 
 <body>
@@ -41,7 +33,13 @@
 
 
                             <div class="form-group" id="l1">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" />
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" 
+                                value="<?php if(isset($_SESSION['tmpEmail'])){
+                                    echo $_SESSION['tmpEmail'];
+                                }
+                                else{
+                                    echo '';
+                                } ?>"/>
 
                                 <?php echo $_emailErr; ?>
                                 <?php echo $emailEmptyErr; ?>
@@ -49,21 +47,39 @@
 
 
                             <div class="form-group" id="l2">
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" 
+                                value="<?php if(isset($_SESSION['tmppassword'])){
+                                    echo $_SESSION['tmppassword'];
+                                }
+                                else{
+                                    echo '';
+                                } ?>" />
 
                                 <?php echo $_passwordErr; ?>
                                 <?php echo $passwordEmptyErr; ?>
                             </div>
 
                             <div class="form-group" id="l3">
-                                <input type="password" class="form-control" name="confirmpassword" id="password" placeholder="Confirm Password" />
+                                <input type="password" class="form-control" name="confirmpassword" id="password" placeholder="Confirm Password" 
+                                value="<?php if(isset($_SESSION['tmpcpassword'])){
+                                    echo $_SESSION['tmpcpassword'];
+                                }
+                                else{
+                                    echo '';
+                                } ?>"/>
 
                                 <?php echo $_cpasswordErr; ?>
                                 <?php echo $cpasswordEmptyErr; ?>
                             </div>
 
                             <div class="form-group" id="l4">
-                                <input type="text" class="form-control" name="mobilenumber" id="mobilenumber" placeholder="Mobile Number" />
+                                <input type="text" class="form-control" name="mobilenumber" id="mobilenumber" placeholder="Mobile Number" 
+                                value="<?php if(isset($_SESSION['tmpmobile'])){
+                                    echo $_SESSION['tmpmobile'];
+                                }
+                                else{
+                                    echo '';
+                                } ?>"/>
 
                                 <?php echo $_mobileErr; ?>
                                 <?php echo $mobileEmptyErr; ?>

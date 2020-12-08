@@ -1,24 +1,15 @@
 <?php include('config/db.php'); ?>
-<!doctype html>
-<html lang="en">
+    <!doctype html>
+    <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Helvetica|Rubik|Lato" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/dashboard.css">
-    <title>PHP User Registration System Example</title>
-    <!-- jQuery + Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-</head>
+    <head>
+        <?php include('head.php'); ?>
+    </head>
 
-<body>
+    <body>
 
     <?php
-    if (isset($_SESSION['email'])) { ?>
+if (isset($_SESSION['email'])) { ?>
         <header id="home">
             <?php include('header.php'); ?>
         </header>
@@ -36,7 +27,7 @@
                                 <p class="p1"> Events List </p>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-6">
-                                <p class="p2"> View all </p>
+                                <p class="p2"><a href="events.php"> View all </a></p>
                             </div>
                         </div>
                         <hr style="border: 1px dashed #C8CFD6;" />
@@ -72,7 +63,7 @@
                                                     <p class="p5"><b> ' . $row['title'] . '</b></p>
                                                     <p class="p6"> ' . $row['industries'] . ' - ' . $row['sector'] . ' </p>
                                                     <p class="p7"> Starts at ' . $timed . ' </p>
-                                                    <div class="viewbtn"><a href="http://localhost/tansim_auth/editevent.php?id=' . $row['id'] . '"><div class="p8"> <span>View / Edit</span> </div></a></div>
+                                                    <div class="viewbtn"><a href="editevent.php?id=' . $row['id'] . '"><div class="p8"> <span>View / Edit</span> </div></a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -127,12 +118,12 @@
             });
         </script>
 
-    <?php } else {
-        echo "<script>
+<?php } else {
+            echo "<script>
          alert('A valid session was not exist. Please Login to Access.');
          window.location.href='https://lavankumar.000webhostapp.com/tansim_auth/';
          </script>";
-    } ?>
-</body>
+        } ?>
+    </body>
 
-</html>
+    </html>

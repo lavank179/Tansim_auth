@@ -5,9 +5,9 @@
     global $email_verified, $email_already_verified, $activation_error, $vf;
 
     // GET the token = ?token
-    if(!empty($_GET['token']) && !empty($_GET['email'])){
-       $token = $_GET['token'];
-       $email = $_GET['email'];
+    if(!empty($_POST['token']) && !empty($_POST['email'])){
+       $token = $_POST['token'];
+       $email = $_POST['email'];
     } else {
         $token = "";
         $email = "";

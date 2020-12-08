@@ -3,16 +3,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Helvetica|Rubik|Lato" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/dashboard.css">
-    <title>PHP User Registration System Example</title>
-    <!-- jQuery + Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <?php include('head.php'); ?>
 </head>
 
 <body>
@@ -31,7 +22,7 @@
                     <div class="col-sm-5 col-md-5 col-lg-5">
                         <div class="row">
                             <div class="col-sm-6 col-md-6 col-lg-6">
-                                <a href="http://localhost/tansim_auth/dashboard.php">
+                                <a href="dashboard.php">
                                     <img src="https://img.icons8.com/material-sharp/24/000000/home.png" /><span id="p1"> Dashboard | Events List </span> </a>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-6"></div>
@@ -45,7 +36,7 @@
                         <p id="p2"> Events List </p>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right; padding-top: 20px">
-                        <a href="https://lavankumar.000webhostapp.com/tansim_auth/addevent.php"><button class="btn btn-primary btn-md"> Add Events </button></a>
+                        <a href="addevent.php"><button class="btn btn-primary btn-md"> Add Events </button></a>
                     </div>
                 </div>
 
@@ -87,7 +78,7 @@
                                 </div>
                                 <div class="col-sm-4 col-md-4 col-lg-4">
                                     <div class="lake">
-                                        <a href="http://localhost/tansim_auth/editevent.php?id=' . $row['id'] . '">
+                                        <a href="editevent.php?id=' . $row['id'] . '">
                                         <span class="btn btn-md btn-primary btn-edit"><img src="./assets/edit.png" /> Edit </span>
                                         </a>
                                         <p class="p7"><img src="./assets/location.jpg" /> ' . $row['location'] . ' </p>

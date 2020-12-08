@@ -1,5 +1,5 @@
 <?php
-   
+   ob_start();
     // Database connection
     include('config/db.php');
 
@@ -8,6 +8,9 @@
     if(isset($_POST['login'])) {
         $email_signin        = $_POST['email_signin'];
         $password_signin     = $_POST['password_signin'];
+
+        $_SESSION['emailtmp'] = $email_signin;
+        $_SESSION['passtmp'] = $password_signin;
 
         // clean data 
         $user_email = filter_var($email_signin, FILTER_SANITIZE_EMAIL);
@@ -51,12 +54,13 @@
                 // Allow only verified user
                 if($is_active == '1') {
                     if($email_signin == $email && $password_signin == $password) {
-                       header("Location: ./dashboard.php");
-                       
                        $_SESSION['id'] = $id;
                        $_SESSION['email'] = $email;
                        $_SESSION['mobilenumber'] = $mobilenumber;
                        $_SESSION['token'] = $token;
+                       header("Location: ./dashboard.php");
+                       
+                       
 
                     } else {
                         $emailPwdErr = '<div class="alert alert-danger">
@@ -67,6 +71,8 @@
                     $verificationRequiredErr = '<div class="alert alert-danger">
                             Account verification is required for login.
                         </div>';
+
+                        header("Location: ./mail_verify.php");
                 }
 
             }

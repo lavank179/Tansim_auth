@@ -51,7 +51,7 @@ require_once './controllers/PHPMailer/src/SMTP.php';
           $message = "verification Code has been sent to your email.";
                             echo "<script>
                                 alert('$message');
-                                window.location.href='https://lavankumar.000webhostapp.com/tansim_auth/mail_verify.php?email=$email';
+                                window.location.href='mail_verify.php?email=$email';
                                 </script>";
       }
     }

@@ -11,6 +11,7 @@ require_once 'PHPMailer/src/SMTP.php';
 global $success_msg, $email_exist, $_emailErr, $_mobileErr, $_passwordErr, $_cpasswordErr;
 global $emailEmptyErr, $mobileEmptyErr, $passwordEmptyErr, $cpasswordEmptyErr, $email_verify_err, $email_verify_success;
 
+
 // Set empty form vars for validation mapping
 $_email = $_mobile_number = $_password = $_cpassword = "";
 
@@ -19,6 +20,11 @@ if (isset($_POST["submit"])) {
     $mobilenumber  = $_POST["mobilenumber"];
     $cpassword      = $_POST["confirmpassword"];
     $password      = $_POST["password"];
+
+    $_SESSION['tmpEmail'] = $email;
+    $_SESSION['tmppassword'] = $password;
+    $_SESSION['tmpcpassword'] = $cpassword;
+    $_SESSION['tmpmobile'] = $mobilenumber;
 
     $email_check_query = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}' ");
     $rowCount = mysqli_num_rows($email_check_query);
@@ -110,7 +116,7 @@ if (isset($_POST["submit"])) {
                         $mail->isHTML(true);
                         $mail->Subject = 'Please Verify Email Address!';
                         $mail->Body    = 'Your OTP for verifying : ' . $token . '<br> Or <br><br>Click on the activation link to verify your email. <br><br>
-                        <a href="http://localhost/tansim_auth/mail_verify.php?email=' . $email . '"> Click here to verify email</a>
+                        <a href="https://lavankumar.000webhostapp.com/tansim_auth/mail_verify.php?email=' . $email . '"> Click here to verify email</a>
                       ';
                         
                         $result = $mail->send();
@@ -127,8 +133,11 @@ if (isset($_POST["submit"])) {
                             $message = "verification Code has been sent to your email.";
                             echo "<script>
                                 alert('$message');
-                                window.location.href='https://lavankumar.000webhostapp.com/tansim_auth/mail_verify.php?email=$email';
+                                
                                 </script>";
+                                header("Location: ./mail_verify.php");
+
+                                $_SESSION['Vemail'] = $email;
                         }
                     }
                 }
@@ -161,3 +170,4 @@ if (isset($_POST["submit"])) {
         }
     }
 }
+?>
