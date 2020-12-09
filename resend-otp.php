@@ -28,7 +28,7 @@ require_once './controllers/PHPMailer/src/SMTP.php';
                         $mail->SMTPSecure = "tls";  
                         $mail->SMTPAuth = true;
                         $mail->Username = 'ram-lavan17@outlook.com';
-                        $mail->Password = 'LAVAN@801kumar';
+                        $mail->Password = '***********';
                         $mail->setFrom('ram-lavan17@outlook.com');
                         $mail->addAddress($email);
                         $mail->isHTML(true);
