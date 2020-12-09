@@ -94,10 +94,9 @@ ob_start();
                     $fileExtension = strtolower(end($fileNameCmps));
 
 
-                    $uploadFileDir = 'uploaded_files/';
-                    $dest_path = $uploadFileDir . $fileName;
-
                     if (in_array($fileExtension, $allowedfileExtensions)) {
+                        include('image_upload.php');
+                        if ($conf == 1) {
                             $time = DATE("H:i", STRTOTIME("$_time"));
                             $email = $_SESSION['email'];
                             $imagef = $fileName;
@@ -120,7 +119,13 @@ ob_start();
                             } else {
                                 header("Location: ./dashboard.php");
                             }
-                    } else {
+                        } else {
+                            $_imageErr = '<div class="alert alert-danger">
+                                Image could be not Uploaded.
+                              </div>';
+                        }
+                    }
+                     else {
                         $_imageErr = '<div class="alert alert-danger">
                                         Only  png, jpg and jpeg file types are allowed.
                                       </div>';

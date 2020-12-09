@@ -81,6 +81,9 @@
                                         <a href="editevent.php?id=' . $row['id'] . '">
                                         <span class="btn btn-md btn-primary btn-edit"><img src="./assets/edit.png" /> Edit </span>
                                         </a>
+                                        <a href="./controllers/deleteevent.php?id=' . $row['id'] . '">
+                                        <span class="btn btn-md btn-primary btn-edit"><img src="./assets/edit.png" /> Delete </span>
+                                        </a>
                                         <p class="p7"><img src="./assets/location.jpg" /> ' . $row['location'] . ' </p>
                                     </div>
                                 </div>

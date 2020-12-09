@@ -83,22 +83,20 @@
             ) {
                 echo "<h1> Not ok </h1>";
             } else {
-                if (isset($_FILES['bannerimage']) && $_FILES['bannerimage']['error'] === UPLOAD_ERR_OK) {
-                    $allowedfileExtensions = array('jpg', 'png', 'jpeg');
+                
 
                     // get details of the uploaded file
-                    $fileTmpPath = $_FILES['bannerimage']['tmp_name'];
-                    $fileName = $_FILES['bannerimage']['name'];
-                    $fileSize = $_FILES['bannerimage']['size'];
-                    $fileType = $_FILES['bannerimage']['type'];
-                    $fileNameCmps = explode(".", $fileName);
-                    $fileExtension = strtolower(end($fileNameCmps));
+                    // $fileTmpPath = $_FILES['bannerimage']['tmp_name'];
+                    // $fileName = $_FILES['bannerimage']['name'];
+                    // $fileSize = $_FILES['bannerimage']['size'];
+                    // $fileType = $_FILES['bannerimage']['type'];
+                    // $fileNameCmps = explode(".", $fileName);
+                    // $fileExtension = strtolower(end($fileNameCmps));
 
 
-                    $uploadFileDir = './uploaded_files/';
-                    $dest_path = $uploadFileDir . $fileName;
+                    // $uploadFileDir = './uploaded_files/';
+                    // $dest_path = $uploadFileDir . $fileName;
 
-                    if (in_array($fileExtension, $allowedfileExtensions)) {
                             $time = DATE("H:i", STRTOTIME("$_time"));
                             $email = $_SESSION['email'];
                             $imagef = $fileName;
@@ -119,16 +117,7 @@
                             } else {
                                 header("Location: ./dashboard.php");
                             }
-                    } else {
-                        $_imageErr = '<div class="alert alert-danger">
-                                        Only  png, jpg and jpeg file types are allowed.
-                                      </div>';
-                    }
-                } else {
-                    $_imageErr = '<div class="alert alert-danger">
-                                Image is not Uploaded. May be network issue.
-                              </div>';
-                }
+                    
             }
         } else {
             if (empty($title)) {
