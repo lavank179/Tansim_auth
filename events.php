@@ -56,7 +56,7 @@
                         $timed = date("h:i A", strtotime($timed));
 
 
-                        echo '<div class="card mb-3 hoverable">
+                        echo '<div class="card mb-3 hoverable1">
                     <div class="row no-gutters">
                         <div class="col-sm-3 col-md-3 col-lg-3">
                             <img src="./controllers/uploaded_files/' . $row['image'] . '" class="card-img" alt="...">
@@ -103,10 +103,10 @@
 
 
         <script>
-            $('.hoverable').mouseenter(function() {
+            $('.hoverable1').mouseenter(function() {
                 $(this).addClass('shadow');
             });
-            $('.hoverable').mouseleave(function() {
+            $('.hoverable1').mouseleave(function() {
                 $(this).removeClass('shadow');
             });
         </script>

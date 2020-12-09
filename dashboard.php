@@ -52,7 +52,7 @@ if (isset($_SESSION['email'])) { ?>
 
                                 echo '
                                         <div class="grid-item">
-                                            <div class="card hoverable" style="width: 18.5rem; height: 19rem;">
+                                            <div class="card hoverable1" style="width: 18.5rem; height: 19rem;">
                                                 <div class="card-body">
                                                     <div class="row">
                                                                 <div class="col-sm-3 col-md-3 col-lg-3 p3"> ' . $d2 . '</div>
@@ -108,11 +108,14 @@ if (isset($_SESSION['email'])) { ?>
 
 
         <script>
-            $('.hoverable').mouseenter(function() {
+            $(document).ready(function(){
+            $(this).find(".viewbtn").hide();
+        });
+            $('.hoverable1').mouseenter(function() {
                 $(this).addClass('shadow');
                 $(this).find(".viewbtn").show();
             });
-            $('.hoverable').mouseleave(function() {
+            $('.hoverable1').mouseleave(function() {
                 $(this).removeClass('shadow');
                 $(this).find(".viewbtn").hide();
             });
