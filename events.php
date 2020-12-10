@@ -44,11 +44,33 @@
 
                     <?php
                     $email = $_SESSION['email'];
-                    $queryEvent = "SELECT * FROM events WHERE email='$email'";
+
+                    $limit = 4;
+                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                    $start = ($page - 1) * $limit;
+
+                    $queryEvent = "SELECT * FROM events LIMIT $start, $limit";
                     $result = mysqli_query($conn, $queryEvent);
+                    $Events = mysqli_fetch_assoc($result);
 
-                    while ($row = mysqli_fetch_array($result)) {
+                    $queryCount = "SELECT count(id) AS idc FROM events";
+                    $result1 = mysqli_query($conn, $queryCount);
+                    $eventCount = mysqli_fetch_assoc($result1);
 
+                    $total = $eventCount['idc'];
+                    $pages = ceil($total / $limit);
+
+                    $Previous = $page - 1;
+                    $Next = $page + 1; ?>
+
+
+
+
+
+
+
+
+                    <?php while ($row = mysqli_fetch_array($result)) {
                         $dated = $row['eventdate'];
                         $timed = $row['eventtime'];
                         $d1 = date("l", strtotime($dated));
@@ -59,7 +81,7 @@
                         echo '<div class="card mb-3 hoverable1">
                     <div class="row no-gutters">
                         <div class="col-sm-3 col-md-3 col-lg-3">
-                            <img src="./controllers/uploaded_files/' . $row['image'] . '" class="card-img" alt="...">
+                            <img src="./controllers/uploaded_files/' . $row['image'] . '" class="card-img" alt="">
                             </div>
                         <div class="col-sm-9 col-md-9 col-lg-9">
                             <div class="card-body">
@@ -94,7 +116,30 @@
                 </div>';
                     } ?>
 
+                    <div class="row" id="page-nav">
+                        <nav aria-label="Page navigation">
+                            <ul class="nav-link">
+                                <li>
+                                    <a href="events.php?page=<?= $Previous; ?>" aria-label="Previous" class="<?php echo $page <= 1 ? 'disabled' : ''; ?> abP">
+                                        <span aria-hidden="true">&laquo; </span>
+                                    </a>
+                                </li>
+                                <?php for ($i = 1; $i <= $pages; $i++) : ?>
+                                    <li><a href="events.php?page=<?= $i; ?>"><?= $i; ?></a></li>
+                                <?php endfor; ?>
+                                <li>
+                                    <a href="events.php?page=<?= $Next; ?>" aria-label="Next" class="<?php echo $page >= $pages ? 'disabled' : ''; ?> abN">
+                                        <span aria-hidden="true"> &raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+
                 </div>
+
+
             </div>
 
 
@@ -109,6 +154,17 @@
             $('.hoverable1').mouseleave(function() {
                 $(this).removeClass('shadow');
             });
+            if ($('.abP').hasClass("disabled")) {
+                $('.abP').removeAttr('href');
+            } else {
+                $('.abP').attr('href', "events.php?page=<?= $Previous; ?>");
+            }
+
+            if ($('.abN').hasClass("disabled")) {
+                $('.abN').removeAttr('href');
+            } else {
+                $('.abN').attr('href', "events.php?page=<?= $Next; ?>");
+            }
         </script>
 
     <?php } else {
