@@ -39,76 +39,72 @@
                     <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right; padding-top: 20px">
                         <!-- <a href="addevent.php"><button class="btn btn-primary btn-md"> Add Events </button></a> -->
                         <div class="form-group">
-                            <input type="text" name="search_box" id="search_box" class="form-control" placeholder="Type your search query here" />
+                            <input type="text" name="search_box" id="search_box" class="form-control" placeholder="Search Here..." />
                         </div>
                     </div>
                 </div>
 
                 <div class="filter">
-                    <form action="" method="post">
-                        <input type="hidden" name="page" class="form-control" value="<?= $_GET['page']; ?>">
-                        <div class="dropdown dl">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Industry
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <p class="dropdown-item">Action</p>
-                                <p class="dropdown-item">Another action</p>
-                                <p class="dropdown-item">Something else here</p>
-                            </div>
+                    <input type="hidden" name="page" class="form-control" value="<?= $_GET['page']; ?>">
+                    <div class="dropdown dl">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Industry
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <p class="dropdown-item">Action</p>
+                            <p class="dropdown-item">Another action</p>
+                            <p class="dropdown-item">Something else here</p>
                         </div>
-                        <div class="dropdown dl">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Sector
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <p class="dropdown-item">Action</p>
-                                <p class="dropdown-item">Another action</p>
-                                <p class="dropdown-item">Something else here</p>
-                            </div>
-                        </div>
-                        <div class="dropdown dl">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Date
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <p class="dropdown-item">Action</p>
-                                <p class="dropdown-item">Another action</p>
-                                <p class="dropdown-item">Something else here</p>
-                            </div>
-                        </div>
-                        <div class="dropdown dl">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Location
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <p class="dropdown-item">Action</p>
-                                <p class="dropdown-item">Another action</p>
-                                <p class="dropdown-item">Something else here</p>
-                            </div>
-                        </div>
-                        <div class="dropdown dl">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Free or Paid
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-align: center;">
-                                <p class="dropdown-item">
-                                    <div class="custom-control custom-radio custom-control-inline pt-4" style="text-align: center;">
-                                        <input type="radio" id="customRadioInline1" name="epayment" class="custom-control-input" value="free">
-                                        <label class="custom-control-label" for="customRadioInline1"> Free </label>
-                                    </div>
-                                </p>
-                                <p class="dropdown-item">
-                                    <div class="custom-control custom-radio custom-control-inline pt-4" style="text-align: center;">
-                                        <input type="radio" id="customRadioInline2" name="epayment" class="custom-control-input" value="paid">
-                                        <label class="custom-control-label" for="customRadioInline2"> Paid </label>
-                                    </div>
-                                </p>
+                    </div>
+                    <div class="dropdown dl">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sector
+                        </button>
+                    </div>
+                    <div class="dropdown dl">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Date
+                        </button>
 
-                            </div>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-align: center;">
+                            <label for="date" id="l4"> From </label>
+                            <input type="date" class="form-control" name="eventdate" id="fromdate" style="width: 170px;">
+                            <label for="date" id="l4"> To </label>
+                            <input type="date" class="form-control" name="eventdate" id="todate" style="width: 170px;">
                         </div>
-                        <div class="dl"><button type="submit" name="submit1" id="submit" class="btn btn-primary btn-lg">Submit</button></div>
-                    </form>
+                    </div>
+                    <div class="dropdown dl">
+                        <select class="custom-select custom-select-lg" id="selLocation" style="width: 193px;">
+                            <option selected><span style="font-size: 9px;">Location</span></option>
+                            <option value="1">chennai</option>
+                            <option value="2">bangalore</option>
+                            <option value="3">hyderabad</option>
+                            <option value="3">mumbai</option>
+                            <option value="3">delhi</option>
+                            <option value="3">trivandrum</option>
+                        </select>
+                    </div>
+                    <div class="dropdown dl">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Free or Paid
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-align: center;">
+                            <p class="dropdown-item">
+                                <div class="custom-control custom-radio custom-control-inline" style="text-align: center;">
+                                    <input type="radio" id="customRadioInline1" name="epayment" class="custom-control-input pay" value="free">
+                                    <label class="custom-control-label" for="customRadioInline1"> Free </label>
+                                </div>
+                            </p>
+                            <p class="dropdown-item">
+                                <div class="custom-control custom-radio custom-control-inline" style="text-align: center;">
+                                    <input type="radio" id="customRadioInline2" name="epayment" class="custom-control-input pay" value="paid">
+                                    <label class="custom-control-label" for="customRadioInline2"> Paid </label>
+                                </div>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="dl"><button name="submit1" id="submit" class="btn btn-primary btn-lg">Submit</button></div>
                 </div>
 
                 <br><br>
@@ -151,6 +147,8 @@
                 $(document).on('click', '.page-link', function() {
                     var page = $(this).data('page_number');
                     var query = $('#search_box').val();
+                    var query = query + $('input[name="epayment"]:checked').val();
+                    //var query = query + $('#selLocation :selected').text();
                     load_data(page, query);
                 });
 
@@ -158,6 +156,18 @@
                     var query = $('#search_box').val();
                     load_data(1, query);
                 });
+
+
+
+                $("#submit").on('click', function() {
+                    var query = $('input[name="epayment"]:checked').val();
+                    //var query = query + $('#selLocation :selected').text();
+                    fDate = $('#fromdate').val().split("/");
+                    tDate = $('#todate').val().split("/");
+                    load_data(1, query);
+                });
+
+
 
             });
         </script>
