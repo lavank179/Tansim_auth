@@ -1,4 +1,5 @@
 <?php include('config/db.php'); ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -36,117 +37,91 @@
                         <p id="p2"> Events List </p>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: right; padding-top: 20px">
-                        <a href="addevent.php"><button class="btn btn-primary btn-md"> Add Events </button></a>
-                    </div>
-                </div>
-
-                <div class="">
-
-                    <?php
-                    $email = $_SESSION['email'];
-
-                    $limit = 4;
-                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                    $start = ($page - 1) * $limit;
-
-                    $queryEvent = "SELECT * FROM events LIMIT $start, $limit";
-                    $result = mysqli_query($conn, $queryEvent);
-                    $Events = mysqli_fetch_assoc($result);
-
-                    $queryCount = "SELECT count(id) AS idc FROM events";
-                    $result1 = mysqli_query($conn, $queryCount);
-                    $eventCount = mysqli_fetch_assoc($result1);
-
-                    $total = $eventCount['idc'];
-                    $pages = ceil($total / $limit);
-
-                    $Previous = $page - 1;
-                    $Next = $page + 1; ?>
-
-
-
-
-
-
-
-
-                    <?php while ($row = mysqli_fetch_array($result)) {
-                        $dated = $row['eventdate'];
-                        $timed = $row['eventtime'];
-                        $d1 = date("l", strtotime($dated));
-                        $dated = date("d F, y", strtotime($dated));
-                        $timed = date("h:i A", strtotime($timed));
-
-
-                        echo '<div class="card mb-3 hoverable1">
-                    <div class="row no-gutters">
-                        <div class="col-sm-3 col-md-3 col-lg-3">
-                            <img src="./controllers/uploaded_files/' . $row['image'] . '" class="card-img" alt="">
-                            </div>
-                        <div class="col-sm-9 col-md-9 col-lg-9">
-                            <div class="card-body">
-                            <div class=row>
-                            <div class="col-sm-8 col-md-8 col-lg-8">
-                                <p class="p3"><b> ' . $row['title'] . '</b></p>
-                                <p class="p4"> ' . $row['short_des'] . ' </p>
-                                <p class="p5"> ' . $row['industries'] . ' - ' . $row['sector'] . ' </p>
-                                <p class="card-text p6">
-                                    <div class="text-muted small">
-                                    <img src="https://img.icons8.com/color/96/000000/calendar.png"/> ' . $dated . '&nbsp;&nbsp;&nbsp;&nbsp; 
-                                    <img src="https://img.icons8.com/material-outlined/24/000000/clock.png"/> ' . $d1 . ',  ' . $timed . ' 
-                                    </div>
-                                </p>
-                                
-                                </div>
-                                <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <div class="lake">
-                                        <a href="editevent.php?id=' . $row['id'] . '">
-                                        <span class="btn btn-md btn-primary btn-edit"><img src="./assets/edit.png" /> Edit </span>
-                                        </a>
-                                        <a href="./controllers/deleteevent.php?id=' . $row['id'] . '">
-                                        <span class="btn btn-md btn-primary btn-edit"><img src="./assets/edit.png" /> Delete </span>
-                                        </a>
-                                        <p class="p7"><img src="./assets/location.jpg" /> ' . $row['location'] . ' </p>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
+                        <!-- <a href="addevent.php"><button class="btn btn-primary btn-md"> Add Events </button></a> -->
+                        <div class="form-group">
+                            <input type="text" name="search_box" id="search_box" class="form-control" placeholder="Type your search query here" />
                         </div>
                     </div>
-                </div>';
-                    } ?>
-
-                    <div class="row" id="page-nav">
-                        <nav aria-label="Page navigation">
-                            <ul class="nav-link">
-                                <li>
-                                    <a href="events.php?page=<?= $Previous; ?>" aria-label="Previous" class="<?php echo $page <= 1 ? 'disabled' : ''; ?> abP">
-                                        <span aria-hidden="true">&laquo; </span>
-                                    </a>
-                                </li>
-                                <?php for ($i = 1; $i <= $pages; $i++) : ?>
-                                    <li><a href="events.php?page=<?= $i; ?>"><?= $i; ?></a></li>
-                                <?php endfor; ?>
-                                <li>
-                                    <a href="events.php?page=<?= $Next; ?>" aria-label="Next" class="<?php echo $page >= $pages ? 'disabled' : ''; ?> abN">
-                                        <span aria-hidden="true"> &raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-
-                    </div>
-
                 </div>
+
+                <div class="filter">
+                    <form action="" method="post">
+                        <input type="hidden" name="page" class="form-control" value="<?= $_GET['page']; ?>">
+                        <div class="dropdown dl">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Industry
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <p class="dropdown-item">Action</p>
+                                <p class="dropdown-item">Another action</p>
+                                <p class="dropdown-item">Something else here</p>
+                            </div>
+                        </div>
+                        <div class="dropdown dl">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sector
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <p class="dropdown-item">Action</p>
+                                <p class="dropdown-item">Another action</p>
+                                <p class="dropdown-item">Something else here</p>
+                            </div>
+                        </div>
+                        <div class="dropdown dl">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Date
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <p class="dropdown-item">Action</p>
+                                <p class="dropdown-item">Another action</p>
+                                <p class="dropdown-item">Something else here</p>
+                            </div>
+                        </div>
+                        <div class="dropdown dl">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Location
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <p class="dropdown-item">Action</p>
+                                <p class="dropdown-item">Another action</p>
+                                <p class="dropdown-item">Something else here</p>
+                            </div>
+                        </div>
+                        <div class="dropdown dl">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Free or Paid
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-align: center;">
+                                <p class="dropdown-item">
+                                    <div class="custom-control custom-radio custom-control-inline pt-4" style="text-align: center;">
+                                        <input type="radio" id="customRadioInline1" name="epayment" class="custom-control-input" value="free">
+                                        <label class="custom-control-label" for="customRadioInline1"> Free </label>
+                                    </div>
+                                </p>
+                                <p class="dropdown-item">
+                                    <div class="custom-control custom-radio custom-control-inline pt-4" style="text-align: center;">
+                                        <input type="radio" id="customRadioInline2" name="epayment" class="custom-control-input" value="paid">
+                                        <label class="custom-control-label" for="customRadioInline2"> Paid </label>
+                                    </div>
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="dl"><button type="submit" name="submit1" id="submit" class="btn btn-primary btn-lg">Submit</button></div>
+                    </form>
+                </div>
+
+                <br><br>
+                <div class="" id="dynamic_content"></div>
 
 
             </div>
 
 
             <div class="col-sm-1 col-md-1 col-lg-1"></div>
+
         </div>
-
-
+        <br><br><br><br>
         <script>
             $('.hoverable1').mouseenter(function() {
                 $(this).addClass('shadow');
@@ -154,17 +129,37 @@
             $('.hoverable1').mouseleave(function() {
                 $(this).removeClass('shadow');
             });
-            if ($('.abP').hasClass("disabled")) {
-                $('.abP').removeAttr('href');
-            } else {
-                $('.abP').attr('href', "events.php?page=<?= $Previous; ?>");
-            }
 
-            if ($('.abN').hasClass("disabled")) {
-                $('.abN').removeAttr('href');
-            } else {
-                $('.abN').attr('href', "events.php?page=<?= $Next; ?>");
-            }
+            $(document).ready(function() {
+
+                load_data(1);
+
+                function load_data(page, query = '') {
+                    $.ajax({
+                        url: "fetch.php",
+                        method: "POST",
+                        data: {
+                            page: page,
+                            query: query
+                        },
+                        success: function(data) {
+                            $('#dynamic_content').html(data);
+                        }
+                    });
+                }
+
+                $(document).on('click', '.page-link', function() {
+                    var page = $(this).data('page_number');
+                    var query = $('#search_box').val();
+                    load_data(page, query);
+                });
+
+                $('#search_box').keyup(function() {
+                    var query = $('#search_box').val();
+                    load_data(1, query);
+                });
+
+            });
         </script>
 
     <?php } else {
