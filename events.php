@@ -51,22 +51,45 @@
                             Industry
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <p class="dropdown-item">Action</p>
-                            <p class="dropdown-item">Another action</p>
-                            <p class="dropdown-item">Something else here</p>
+                            <div class="container">
+                                <input type="checkbox" name="industries" value="AWS Group">
+                                <label>AWS Group</label>
+                                <input type="checkbox" name="industries" value="GDG">
+                                <label>GDG</label>
+                                <input type="checkbox" name="industries" value="Apple">
+                                <label>Apple</label>
+                                <input type="checkbox" name="industries" value="Facebook">
+                                <label>Facebook</label>
+                            </div>
                         </div>
                     </div>
                     <div class="dropdown dl">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sector
                         </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="container">
+                                <input type="checkbox" name="sector" value="chennai">
+                                <label> Chennai </label>
+                                <input type="checkbox" name="sector" value="bangalore">
+                                <label> Bangalore </label>
+                                <input type="checkbox" name="sector" value="hyderabad">
+                                <label> Hyderabad </label>
+                                <input type="checkbox" name="sector" value="mumbai">
+                                <label> Mumbai </label>
+                                <input type="checkbox" name="sector" value="delhi">
+                                <label> Delhi </label>
+                                <input type="checkbox" name="sector" value="trivandrum">
+                                <label> Trivandrum </label>
+                            </div>
+                        </div>
                     </div>
                     <div class="dropdown dl">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Date
                         </button>
 
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-align: center;">
+                        <div class="dropdown-menu px-2 pb-3" aria-labelledby="dropdownMenuButton" style="text-align: center;">
                             <label for="date" id="l4"> From </label>
                             <input type="date" class="form-control" name="eventdate" id="fromdate" style="width: 170px;">
                             <label for="date" id="l4"> To </label>
@@ -74,37 +97,40 @@
                         </div>
                     </div>
                     <div class="dropdown dl">
-                        <select class="custom-select custom-select-lg" id="selLocation" style="width: 193px;">
-                            <option selected><span style="font-size: 9px;">Location</span></option>
-                            <option value="1">chennai</option>
-                            <option value="2">bangalore</option>
-                            <option value="3">hyderabad</option>
-                            <option value="3">mumbai</option>
-                            <option value="3">delhi</option>
-                            <option value="3">trivandrum</option>
-                        </select>
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Location
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="container">
+                                <input type="checkbox" name="location" value="chennai">
+                                <label> Chennai </label>
+                                <input type="checkbox" name="location" value="bangalore">
+                                <label> Bangalore </label>
+                                <input type="checkbox" name="location" value="hyderabad">
+                                <label> Hyderabad </label>
+                                <input type="checkbox" name="location" value="mumbai">
+                                <label> Mumbai </label>
+                                <input type="checkbox" name="location" value="delhi">
+                                <label> Delhi </label>
+                                <input type="checkbox" name="location" value="trivandrum">
+                                <label> Trivandrum </label>
+                            </div>
+                        </div>
                     </div>
                     <div class="dropdown dl">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Free or Paid
+                            Payment
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-align: center;">
-                            <p class="dropdown-item">
-                                <div class="custom-control custom-radio custom-control-inline" style="text-align: center;">
-                                    <input type="radio" id="customRadioInline1" name="epayment" class="custom-control-input pay" value="free">
-                                    <label class="custom-control-label" for="customRadioInline1"> Free </label>
-                                </div>
-                            </p>
-                            <p class="dropdown-item">
-                                <div class="custom-control custom-radio custom-control-inline" style="text-align: center;">
-                                    <input type="radio" id="customRadioInline2" name="epayment" class="custom-control-input pay" value="paid">
-                                    <label class="custom-control-label" for="customRadioInline2"> Paid </label>
-                                </div>
-                            </p>
-
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="container">
+                                <input type="checkbox" name="payment" value="free">
+                                <label> Free </label>
+                                <input type="checkbox" name="payment" value="paid">
+                                <label> Paid </label>
+                            </div>
                         </div>
                     </div>
-                    <div class="dl"><button name="submit1" id="submit" class="btn btn-primary btn-lg">Submit</button></div>
+                    <div class="dl"><button name="submit1" id="submit" class="btn btn-primary btn-md" style="background-color: #565565;border: none;"> Apply Filter</button></div>
                 </div>
 
                 <br><br>
@@ -130,7 +156,7 @@
 
                 load_data(1);
 
-                function load_data(page, query = '') {
+                function load_data(page, query='') {
                     $.ajax({
                         url: "fetch.php",
                         method: "POST",
@@ -144,12 +170,58 @@
                     });
                 }
 
+                function load_data2(page, query2=[]) {
+                    console.log(page, query2);
+                    $.ajax({
+                        url: "fetch.php",
+                        method: "POST",
+                        data: {
+                            page: page,
+                            query: query2
+                        },
+                        success: function(data) {
+                            $('#dynamic_content').html(data);
+                        }
+                    });
+                }
+
+                function filtering() {
+                    fDate = $('#fromdate').val().split("/");
+                    tDate = $('#todate').val().split("/");
+                    if(fDate == "") fDate = null
+                    if(tDate == "") tDate = null
+                    var indus = [];
+                    $("input:checkbox[name=industries]:checked").each(function() {
+                        indus.push($(this).val());
+                    });
+                    var sect = [];
+                    $("input:checkbox[name=sector]:checked").each(function() {
+                        sect.push($(this).val());
+                    });
+                    var locat = [];
+                    $("input:checkbox[name=location]:checked").each(function() {
+                        locat.push($(this).val());
+                    });
+                    var paym = [];
+                    $("input:checkbox[name=payment]:checked").each(function() {
+                        paym.push($(this).val());
+                    });
+                    var query2 = [fDate, tDate, indus, sect, locat, paym];
+                    return query2;
+                }
+
                 $(document).on('click', '.page-link', function() {
-                    var page = $(this).data('page_number');
-                    var query = $('#search_box').val();
-                    var query = query + $('input[name="epayment"]:checked').val();
-                    //var query = query + $('#selLocation :selected').text();
-                    load_data(page, query);
+                    query2 = filtering();
+                    if (query2[2].length <= 0 && query2[3].length <= 0 && query2[4].length <= 0 && query2[5].length <= 0 &&
+                        query2[0] == null && query2[1] == null) {
+                        var page = $(this).data('page_number');
+                        var query = $('#search_box').val();
+                        load_data(page, query);
+                    } else {
+                        var page = $(this).data('page_number');
+                        var query2 = query2;
+                        load_data2(page, query2);
+                    }
                 });
 
                 $('#search_box').keyup(function() {
@@ -160,11 +232,9 @@
 
 
                 $("#submit").on('click', function() {
-                    var query = $('input[name="epayment"]:checked').val();
-                    //var query = query + $('#selLocation :selected').text();
-                    fDate = $('#fromdate').val().split("/");
-                    tDate = $('#todate').val().split("/");
-                    load_data(1, query);
+                    query2 = filtering();
+                    console.log(query2);
+                    //load_data(1, query2);
                 });
 
 

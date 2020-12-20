@@ -30,7 +30,8 @@ if ($_POST['query'] != '') {
     $query .= '
   WHERE title LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR payment LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR short_des LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%"
   OR location LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR industries LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR sector LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%"
-  OR reglink LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR brief_des LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%"
+  OR reglink LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR brief_des LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR eventdate LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%"
+  OR eventtime LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%"
   ';
 }
 
