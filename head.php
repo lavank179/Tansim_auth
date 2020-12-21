@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/dashboard.css">
 
-<title>PHP User Registration System Example</title>
+<title> TANSIM Events </title>
 <!-- jQuery + Bootstrap JS -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
