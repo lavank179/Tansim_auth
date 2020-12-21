@@ -45,7 +45,6 @@
                 </div>
 
                 <div class="filter">
-                    <input type="hidden" name="page" class="form-control" value="<?= $_GET['page']; ?>">
                     <div class="dropdown dl">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Industry
@@ -131,6 +130,7 @@
                         </div>
                     </div>
                     <div class="dl"><button name="submit1" id="submit" class="btn btn-primary btn-md" style="background-color: #565565;border: none;"> Apply Filter</button></div>
+                    <div class="dl"><img id="clear" src="https://img.freepik.com/free-icon/x-circle_318-2105.jpg?size=338&ext=jpg" alt="clear filter"/></div>
                 </div>
 
                 <br><br>
@@ -170,14 +170,13 @@
                     });
                 }
 
-                function load_data2(page, query2=[]) {
-                    console.log(page, query2);
+                function load_data2(page, query2) {
                     $.ajax({
                         url: "fetch.php",
                         method: "POST",
                         data: {
                             page: page,
-                            query: query2
+                            query2: query2
                         },
                         success: function(data) {
                             $('#dynamic_content').html(data);
@@ -233,8 +232,17 @@
 
                 $("#submit").on('click', function() {
                     query2 = filtering();
-                    console.log(query2);
-                    //load_data(1, query2);
+                    if (query2[2].length <= 0 && query2[3].length <= 0 && query2[4].length <= 0 && query2[5].length <= 0 &&
+                        query2[0] == null && query2[1] == null) {
+                            alert("No filter Data selected");
+                        }else{
+                            load_data2(1, query2);
+                        }
+                    
+                });
+
+                $("#clear").on('click', function() {
+                    location.reload();
                 });
 
 

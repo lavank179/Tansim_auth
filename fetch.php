@@ -22,30 +22,90 @@ if ($_POST['page'] > 1) {
     $start = 0;
 }
 
-$query = "
+
+if (isset($_POST['query'])) {
+    $query = "
 SELECT * FROM events 
 ";
-
-if ($_POST['query'] != '') {
-    $query .= '
+    if ($_POST['query'] != '') {
+        $query .= '
   WHERE title LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR payment LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR short_des LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%"
   OR location LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR industries LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR sector LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%"
   OR reglink LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR brief_des LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" OR eventdate LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%"
   OR eventtime LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%"
   ';
+    }
 }
+if (isset($_POST['query2'])) {
+    $query2 = $_POST['query2'];
+    $q = array();
+    print_r($query2);
+
+    if (isset($query2[0][0]) && isset($query2[1][0])) {
+        $q1 = 'eventdate BETWEEN ' . $query2[0][0] . ' AND ' . $query2[1][0];
+        $q[] = $q1;
+    }
+
+    if (isset($query2[2])) {
+        $sql = array(); // Stop errors when $words is empty
+
+        foreach ($query2[2] as $word) {
+            $sql[] = 'industries LIKE %' . $word . '%';
+        }
+        $q2 = implode(" OR ", $sql);
+        $q[] = $q2;
+    }
+
+    if (isset($query2[3])) {
+        $sql = array(); // Stop errors when $words is empty
+
+        foreach ($query2[3] as $word) {
+            $sql[] = 'sector LIKE %' . $word . '%';
+        }
+        $q3 = implode(" OR ", $sql);
+        $q[] = $q3;
+    }
+
+    if (isset($query2[4])) {
+        $sql = array(); // Stop errors when $words is empty
+
+        foreach ($query2[4] as $word) {
+            $sql[] = 'location LIKE %' . $word . '%';
+        }
+        $q4 = implode(" OR ", $sql);
+        $q[] = $q4;
+    }
+
+    if (isset($query2[5])) {
+        $sql = array(); // Stop errors when $words is empty
+
+        foreach ($query2[5] as $word) {
+            $sql[] = 'payment LIKE %' . $word . '%';
+        }
+        $q5 = implode(" OR ", $sql);
+        $q[] = $q5;
+    }
+
+    $filterF = ' WHERE ' . implode(" OR ", $q).' ';
+    $query = 'SELECT * FROM events';
+    $query .= $filterF;
+}
+
 
 $query .= 'ORDER BY id ASC ';
 
 $filter_query = $query . 'LIMIT ' . $start . ', ' . $limit . '';
+echo $filter_query;
 
 $statement = $connect->prepare($query);
 $statement->execute();
 $total_data = $statement->rowCount();
+echo $total_data;
 
 $statement = $connect->prepare($filter_query);
 $statement->execute();
 $result = $statement->fetchAll();
+print_r($result);
 $total_filter_data = $statement->rowCount();
 
 $output = '';
@@ -198,5 +258,4 @@ $output .= '
 
 </div>
 ';
-
 echo $output;
