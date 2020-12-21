@@ -51,7 +51,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <div class="container">
-                                <input type="checkbox" name="industries" value="AWS Group">
+                                <input type="checkbox" name="industries" value="AWS">
                                 <label>AWS Group</label>
                                 <input type="checkbox" name="industries" value="GDG">
                                 <label>GDG</label>
@@ -156,6 +156,7 @@
 
                 load_data(1);
 
+                // If only search bar and normal data is asked.
                 function load_data(page, query='') {
                     $.ajax({
                         url: "fetch.php",
@@ -170,6 +171,7 @@
                     });
                 }
 
+                // If only filter search is asked
                 function load_data2(page, query2) {
                     $.ajax({
                         url: "fetch.php",
@@ -184,6 +186,7 @@
                     });
                 }
 
+                // Retrieves the filtering checkboxes data.
                 function filtering() {
                     fDate = $('#fromdate').val().split("/");
                     tDate = $('#todate').val().split("/");
@@ -209,6 +212,7 @@
                     return query2;
                 }
 
+                //Pages will change according to the page number
                 $(document).on('click', '.page-link', function() {
                     query2 = filtering();
                     if (query2[2].length <= 0 && query2[3].length <= 0 && query2[4].length <= 0 && query2[5].length <= 0 &&
@@ -223,6 +227,7 @@
                     }
                 });
 
+                // Retrieves the search bar data.
                 $('#search_box').keyup(function() {
                     var query = $('#search_box').val();
                     load_data(1, query);
@@ -230,6 +235,7 @@
 
 
 
+                // Retrieves the filter search and submits the data query.
                 $("#submit").on('click', function() {
                     query2 = filtering();
                     if (query2[2].length <= 0 && query2[3].length <= 0 && query2[4].length <= 0 && query2[5].length <= 0 &&
@@ -241,6 +247,7 @@
                     
                 });
 
+                // Clears all the selected filter data.
                 $("#clear").on('click', function() {
                     location.reload();
                 });
@@ -253,7 +260,7 @@
     <?php } else {
         echo "<script>
          alert('A valid session was not exist. Please Login to Access.');
-         window.location.href='https://lavankumar.000webhostapp.com/tansim_auth/';
+         window.location.href='index.php';
          </script>";
     } ?>
 </body>

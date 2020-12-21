@@ -1,6 +1,8 @@
 <?php
 
-$connect = new PDO("mysql:host=localhost; dbname=id15615877_dblavan", "id15615877_lavank", "User#9512log");
+
+//connect to DB
+$connect = new PDO("mysql:host=sql103.byethost32.com; dbname=b32_27511221_dblk", "************", "LAVAN@801kumar");
 /*function get_total_row($connect)
 {
   $query = "
@@ -22,7 +24,7 @@ if ($_POST['page'] > 1) {
     $start = 0;
 }
 
-
+// If only search bar and normal data is asked.
 if (isset($_POST['query'])) {
     $query = "
 SELECT * FROM events 
@@ -36,13 +38,14 @@ SELECT * FROM events
   ';
     }
 }
+
+// If only filter search is asked
 if (isset($_POST['query2'])) {
     $query2 = $_POST['query2'];
     $q = array();
-    print_r($query2);
 
     if (isset($query2[0][0]) && isset($query2[1][0])) {
-        $q1 = 'eventdate BETWEEN ' . $query2[0][0] . ' AND ' . $query2[1][0];
+        $q1 = "eventdate BETWEEN '" . $query2[0][0] . "' AND '" . $query2[1][0] . "'";
         $q[] = $q1;
     }
 
@@ -50,7 +53,7 @@ if (isset($_POST['query2'])) {
         $sql = array(); // Stop errors when $words is empty
 
         foreach ($query2[2] as $word) {
-            $sql[] = 'industries LIKE %' . $word . '%';
+            $sql[] = "industries LIKE '%" . $word . "%'";
         }
         $q2 = implode(" OR ", $sql);
         $q[] = $q2;
@@ -60,7 +63,7 @@ if (isset($_POST['query2'])) {
         $sql = array(); // Stop errors when $words is empty
 
         foreach ($query2[3] as $word) {
-            $sql[] = 'sector LIKE %' . $word . '%';
+            $sql[] = "sector LIKE '%" . $word . "%'";
         }
         $q3 = implode(" OR ", $sql);
         $q[] = $q3;
@@ -70,8 +73,9 @@ if (isset($_POST['query2'])) {
         $sql = array(); // Stop errors when $words is empty
 
         foreach ($query2[4] as $word) {
-            $sql[] = 'location LIKE %' . $word . '%';
+            $sql[] = "location LIKE '%" . $word . "%'";
         }
+        
         $q4 = implode(" OR ", $sql);
         $q[] = $q4;
     }
@@ -80,32 +84,29 @@ if (isset($_POST['query2'])) {
         $sql = array(); // Stop errors when $words is empty
 
         foreach ($query2[5] as $word) {
-            $sql[] = 'payment LIKE %' . $word . '%';
+            $sql[] = "payment LIKE '%" . $word . "%'";
         }
         $q5 = implode(" OR ", $sql);
         $q[] = $q5;
     }
-
-    $filterF = ' WHERE ' . implode(" OR ", $q).' ';
+    // complete filter's data is imploded into single query
+    $filterF = ' WHERE ' . implode(" OR ", $q).'';
     $query = 'SELECT * FROM events';
     $query .= $filterF;
 }
 
-
-$query .= 'ORDER BY id ASC ';
+// Final Query
+$query .= ' ORDER BY id ASC ';
 
 $filter_query = $query . 'LIMIT ' . $start . ', ' . $limit . '';
-echo $filter_query;
 
 $statement = $connect->prepare($query);
 $statement->execute();
 $total_data = $statement->rowCount();
-echo $total_data;
 
 $statement = $connect->prepare($filter_query);
 $statement->execute();
 $result = $statement->fetchAll();
-print_r($result);
 $total_filter_data = $statement->rowCount();
 
 $output = '';
