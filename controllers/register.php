@@ -54,11 +54,11 @@ if (isset($_POST["submit"])) {
                             Email format is invalid.
                         </div>';
             }
-            if (!preg_match("/^[0-9]{10}+$/", $_mobile_number)) {
-                $_mobileErr = '<div class="alert alert-danger">
-                            Only 10-digit mobile numbers allowed.
-                        </div>';
-            }
+//            if (!preg_match("/^[0-9]{10}+$/", $_mobile_number)) {
+//                $_mobileErr = '<div class="alert alert-danger">
+//                            Only 10-digit mobile numbers allowed.
+//                        </div>';
+//            }
             if (!preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{6,20}$/", $_password)) {
                 $_passwordErr = '<div class="alert alert-danger">
                              Password should be between 6 to 20 charcters long, contains atleast one special chacter, lowercase, uppercase and a digit.
@@ -76,7 +76,7 @@ if (isset($_POST["submit"])) {
 
 
                 // Store the data in db, if all the preg_match condition met
-                if ((filter_var($_email, FILTER_VALIDATE_EMAIL)) && (preg_match("/^[0-9]{10}+$/", $_mobile_number)) &&
+                if ((filter_var($_email, FILTER_VALIDATE_EMAIL)) &&
                     (preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/", $_password))
                 ) {
 
@@ -110,13 +110,13 @@ if (isset($_POST["submit"])) {
                         $mail->SMTPSecure = "tls";  
                         $mail->SMTPAuth = true;
                         $mail->Username = 'ram-lavan17@outlook.com';
-                        $mail->Password = '**********';
+                        $mail->Password = '***********';
                         $mail->setFrom('ram-lavan17@outlook.com');
                         $mail->addAddress($email);
                         $mail->isHTML(true);
                         $mail->Subject = 'Please Verify Email Address!';
                         $mail->Body    = 'Your OTP for verifying : ' . $token . '<br> Or <br><br>Click on the activation link to verify your email. <br><br>
-                        <a href="https://lavankumar.000webhostapp.com/tansim_auth/mail_verify.php?email=' . $email . '"> Click here to verify email</a>
+                        <a href="http://lavank.byethost32.com/tansim_auth/mail_verifyp.com/.php?email=' . $email . '"> Click here to verify email</a>
                       ';
                         
                         $result = $mail->send();

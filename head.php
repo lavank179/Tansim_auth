@@ -4,6 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto|Helvetica|Rubik|Lato" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/dashboard.css">
+
 <title>PHP User Registration System Example</title>
 <!-- jQuery + Bootstrap JS -->
 

@@ -45,12 +45,6 @@
                     </div>';
             }
 
-            if (!preg_match("/^[0-9]{10}+$/", $mobile)) {
-                $_mobileErr = '<div class="alert alert-danger">
-            Only 10-digit mobile numbers allowed.
-                    </div>';
-            }
-
             if (!preg_match("/^[a-zA-Z0-9_ ]{5,20}+$/", $industries)) {
                 $_industriesErr = '<div class="alert alert-danger">
                         Industries should be 5 - 20 characters.
@@ -77,8 +71,7 @@
             }
 
 
-            if ((!preg_match("/^[a-zA-Z0-9_ ]{10,50}+$/", $title)) && (!preg_match("/^[a-zA-Z0-9_ ]{8,25}+$/", $location)) &&
-                (!preg_match("/^[0-9]{10}+$/", $mobile)) && (!preg_match("/^[a-zA-Z0-9_ ]{5,20}+$/", $industries)) &&
+            if ((!preg_match("/^[a-zA-Z0-9_ ]{10,50}+$/", $title)) && (!preg_match("/^[a-zA-Z0-9_ ]{8,25}+$/", $location)) && (!preg_match("/^[a-zA-Z0-9_ ]{5,20}+$/", $industries)) &&
                 (strlen($short_des) < 10) && (strlen($brief_des) < 10)
             ) {
                 echo "<h1> Not ok </h1>";

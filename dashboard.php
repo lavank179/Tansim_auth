@@ -124,7 +124,7 @@ if (isset($_SESSION['email'])) { ?>
 <?php } else {
             echo "<script>
          alert('A valid session was not exist. Please Login to Access.');
-         window.location.href='https://lavankumar.000webhostapp.com/tansim_auth/';
+         window.location.href='index.php';
          </script>";
         } ?>
     </body>

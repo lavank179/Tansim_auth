@@ -1,3 +1,4 @@
+<?php ?>
 <!doctype html>
 <html lang="en">
 
@@ -58,10 +59,14 @@
                         <?php
                         if ($vf == 1) {
                             $message = "Email Verified Successfully!  Thank You for being a TANSIM member";
-                            echo "<script>
+                            echo "<script> 
                                 alert('$message');
-                                window.location.href='https://lavankumar.000webhostapp.com/tansim_auth/';
                                 </script>";
+                            $_SESSION['id'] = $id;
+                            $_SESSION['email'] = $email;
+                            $_SESSION['mobilenumber'] = $mobilenumber;
+                            $_SESSION['token'] = $token;
+                            header("Location: ./dashboard.php");
                         }
                         ?>
                     </div>

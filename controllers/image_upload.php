@@ -1,10 +1,10 @@
 <?php
 global $conf;
-$ftp_server = "files.000webhost.com";
-$ftp_user_name = "lavankumar";
-$ftp_user_pass = "***********r";
+$ftp_server = "ftpupload.net";
+$ftp_user_name = "b32_27511221";
+$ftp_user_pass = "***********";
 $ftp_port = "21";
-$destination_file = "/public_html/tansim_auth/controllers/uploaded_files/".$_FILES['bannerimage']['name'];
+$destination_file = "/htdocs/tansim_auth/controllers/uploaded_files/".$_FILES['bannerimage']['name'];
 $source_file = $_FILES['bannerimage']['tmp_name'];
 
 // set up basic connection

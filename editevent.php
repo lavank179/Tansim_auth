@@ -93,6 +93,7 @@
                                             <div class="form-group col-md-6">
                                                 <label for="mobile" id="l7"> Mobile Number </label>
                                                 <input type="phone" class="form-control" id="i7" name="mobilenumber" value="<?php echo $row['mobilenumber']; ?>">
+                                                <div id="er4" class="alert-danger"></div>
                                                 <?php echo $_mobileErr; ?>
                                                 <?php echo $mobileEmptyErr; ?>
                                             </div>
@@ -155,10 +156,24 @@
     } else {
         echo "<script>
          alert('A valid session was not exist. Please Login to Access.');
-         window.location.href='https://lavankumar.000webhostapp.com/tansim_auth/';
+         window.location.href='index.php';
          </script>";
     } ?>
-
+    <script>
+        $('#i7').change(function () {
+            var text = document.getElementById("i7").value;
+            var regx = /^([0|+[0-9]{1,5})?([7-9][0-9]{9})$/;
+            if (!regx.test(text)){
+                $("#er4").html('Mobile number should be valid. +(**) - country code AND (**********) - 10 digit number');
+                $("#er4").addClass('alert-danger');
+                $("#er4").removeClass('alert-success');
+            } else {
+                $("#er4").html('Mobile number Verified');
+                $("#er4").removeClass('alert-danger');
+                $("#er4").addClass('alert-success');
+            }
+        });
+    </script>
 </body>
 
 </html>

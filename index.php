@@ -1,3 +1,15 @@
+<?php
+ob_start();
+// Set sessions
+if(!isset($_SESSION)) {
+    session_start();
+}
+if (isset($_SESSION['email'])) {
+    echo "<script>
+         alert('A valid session is still running. Please Logout to proceed to Login Page.');
+         window.location.href='dashboard.php';
+         </script>";
+} else {?>
 <!doctype html>
 <html lang="en">
 
@@ -14,7 +26,7 @@
                 <p id="logo"><b>TANSIM LOGO</b></p>
                 <p id="p1"><b>Entrepreneurship Development<br> and Innovation Institute</b></p>
                 <p id="p2">It provides various information such as details<br> about. Startup ecosystem in State, events.</p>
-                <p id="p3"><a href="https://lavankumar.000webhostapp.com/tansim_auth/signup.php" style="text-decoration: none; color: #FFFFFF;">Don’t have an account? Sign up</a></p>
+                <p id="p3"><a href="signup.php" style="text-decoration: none; color: #FFFFFF;">Don’t have an account? Sign up</a></p>
             </div>
 
         </div>
@@ -83,3 +95,4 @@
 </body>
 
 </html>
+<?php }?>

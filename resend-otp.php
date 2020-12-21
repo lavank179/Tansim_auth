@@ -34,7 +34,7 @@ require_once './controllers/PHPMailer/src/SMTP.php';
                         $mail->isHTML(true);
                         $mail->Subject = 'Please Verify Email Address!';
                         $mail->Body    = 'Your OTP for verifying : ' . $token . '<br> Or <br><br>Click on the activation link to verify your email. <br><br>
-                        <a href="http://localhost/tansim_auth/mail_verify.php?email=' . $email . '"> Click here to verify email</a>
+                        <a href="http://lavank.byethost32.com//tansim_auth/mail_verify.php?email=' . $email . '"> Click here to verify email</a>
                       ';
                         
                         $result = $mail->send();

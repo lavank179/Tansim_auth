@@ -8,10 +8,10 @@ ob_start();
 
     
 
-     $hostname = "localhost";
-     $username = "id15615877_lavank";
-     $password = "User#9512log";
-     $dbname = "id15615877_dblavan";
+     $hostname = "sql103.byethost32.com";
+     $username = "b32_27511221";
+     $password = "***********";
+     $dbname = "b32_27511221_dblk";
 
      $conn = mysqli_connect($hostname, $username, $password, $dbname) or die ("Database connection not established.");
 
